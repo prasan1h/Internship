@@ -1,0 +1,95 @@
+html,
+body {
+    /* position: relative; */
+    height: 100%;
+}
+
+body {
+    background: #000;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.swiper-slide {
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid #fff; */
+    border-radius: 10%;
+    background-color: aliceblue;
+    color: black;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 80%;
+    height: 50%;
+    object-fit: cover;
+    border: 2px solid black;
+    border-radius: 10%;
+    /* flex: 1; */
+    /* padding: 5px; */
+}
+
+.swiper-slide button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.swiper-button-next , .swiper-button-prev {
+    color: white;
+    border: 2px solid white;
+    border-radius: 10%;
+    width: 60px;
+    height: 30px;
+    position: relative;
+    margin: 0 30px;
+}
+
+.button-container{
+    width: 90%;
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    justify-content:end;
+    align-items: center;
+}
+
+.border-box {
+    border: 2px solid #fff;
+    border-radius: 10%;
+}
+
+/* .s1 {background-color: red;}
+.s2 {background-color: blue;}
+.s3 {background-color: green;}  
+.s4 {background-color: yellow;}
+.s5 {background-color: orange;}
+.s6 {background-color: gray;}
+.s7 {background-color: pink;}
+.s8 {background-color: brown;}
+.s9 {background-color: gray;} */

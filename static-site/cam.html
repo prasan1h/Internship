@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Camera Access</title>
+</head>
+<body>
+
+  <h1>Device Camera</h1>
+
+  <video id="camera" autoplay playsinline></video>
+  <br>
+  <button onclick="startCamera()">Start Camera</button>
+
+  <script>
+    async function startCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false
+        });
+
+        document.getElementById("camera").srcObject = stream;
+
+      } catch (error) {
+        alert("Camera access denied or not available");
+      }
+    }
+  </script>
+
+</body>
+</html>

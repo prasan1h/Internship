@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-bar">
+            <h1 class="logo">FoodCart</h1>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="form-main">
+        <form action="/" method="post">
+            <fieldset>
+                <legend>Contact Us</legend>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required autocomplete="off">
+                <br><br>
+                <label for="phno">Phone Number:</label>
+                <input type="tel" id="phno" name="phno" required autocomplete="off" length="10" pattern="[0-9]{10}">
+                <br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required autocomplete="off">
+                <br><br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <br><br>
+            </fieldset>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 FoodCart. All Rights Reserved.</p>
+
+        <address class="footer-address">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d971.9001599328387!2d77.54065179999999!3d12.997375699999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d1200e15b97%3A0x35d3914e01dc541d!2sT%20Studios!5e0!3m2!1sen!2sin!4v1770031405347!5m2!1sen!2sin" width="600" height="450" class="location-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </address>
+    </footer>
+</body>
+</html>

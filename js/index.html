@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+
+    <div>
+        <h1>Fruits</h1>
+        <form action="">
+            <select name="fruits" id="fruits" >
+                <option value="">select here</option>
+                <option value="Orange" >Orange</option>
+                <option value="Apple">Apple</option>
+                <option value="Banana">Banana</option>
+                <option value="Pineapple">Pineapple</option>
+            </select>
+        </form>
+        <br><br><br>
+        <p id="fruit-result"></p>
+        <p id="f-result"></p>
+        <p id="img-loaded"></p>
+        <p id="vid-loaded"></p>
+        <p id="c-img-loaded"></p>
+        <p id="c-vid-loaded"></p>
+        <div>
+            <img src="hero-bg.png" alt="" id="img">
+        </div>
+        <div>
+            <video src="sample_video.mp4" width="500" height="300" autoplay muted loop  id="vid"></video>
+        </div>
+    </div>
+    <script>
+        const q = document.getElementById('fruits').onchange = function(e) {
+            p.innerText = this.value;
+            a.innerText = e.target.value;
+        };
+        const p = document.getElementById('fruit-result');
+        const a = document.getElementById('f-result');
+        const img = document.getElementById('img');
+        const vid = document.getElementById('vid');
+
+        img.addEventListener("loadeddata", function () {
+        document.getElementById("c-img-loaded").innerHTML = "Content Img is loaded!";
+        });
+        vid.addEventListener("loadeddata", function () {
+        document.getElementById("c-vid-loaded").innerHTML = "Content Vid is loaded!";
+        });
+
+        window.addEventListener("load", function () {
+        document.getElementById("img-loaded").innerHTML = "Img is fully loaded!";
+        });
+        window.addEventListener("load", function () {
+        document.getElementById("vid-loaded").innerHTML = "Vid is fully loaded!";
+        });
+    </script>
+    
+</body>
+</html>
