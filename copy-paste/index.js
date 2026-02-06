@@ -5,10 +5,22 @@ const btnp = document.getElementById('btnp');
 const btnn = document.getElementById('btnn');
 const dataOp = document.getElementById('data-output');
 const paste = document.getElementById('paste');
-var data = '';
+var data = 'internship';
 
 txt.onchange = function() {
-    data = this.value;
+    this.data = data;
+}
+
+// txt.onkeydown = function(e){
+//     if(e.ctrlKey && e.key === 'c'){
+//         this.data = data;
+//         window.navigator.clipboard.writeText(data);
+//     }
+// }
+
+txt.oncopy = function() {
+    this.data = data;
+    window.navigator.clipboard.writeText(data);
 }
 
 btn.onclick = function() {
