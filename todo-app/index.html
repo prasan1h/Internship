@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+    <h1>To-Do</h1>
+    <div class="msg-outbox">
+        <textarea name="msg" id="msg" cols="30" rows="5"></textarea> <br>
+        <div class="msg-btn">
+            <button id="add-btn">add</button>
+        </div>
+    </div>
+    <div class="list-outbox">
+        <h3>on list</h3>
+        <button id="clear">clear todo</button>
+        <ul class="msg-list" id="msg-list"></ul>
+    </div>
+    <div class="done-outbox">
+        <h3>Work done</h3><br>
+        <button id="clear-done">clear done</button>
+        <ul class="done-list" id="done-list"></ul>
+    </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
