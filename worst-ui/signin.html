@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unregister</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <p id="sign-msg">Since we dont have database to store your password unsecurely, We dont regret to inform you that ,password is showing in the console</p><br>
+        and signup before login
+    </div>
+    <div>
+        <!-- <input type="text" placeholder="enter your name"> -->
+        <!-- <input type="text" placeholder="enter your password"> -->
+        <div id="formName"><img src="img/form-name.png" alt="" width="180px"></div> <br>
+        <div id="formPassword"><img src="img/form-pasword.png" alt="" width="180px"></div>
+        <p id="submit-p">done ?</p>
+    </div>
+
+        <script>
+            const submitText = document.getElementById('submit-p');
+            document.getElementById('formName').addEventListener("click", function(){
+                console.log("Fooled Again!!!");
+            });
+
+            document.getElementById('formName').addEventListener('click', function(){
+                let name = prompt("forgot your name? if not write down");
+                console.log(name);
+            });
+
+            document.getElementById('formPassword').addEventListener('click', function(){
+                let password = prompt("2 mins silence, if u dont know ur password");
+                if(password !== 'Fooled Again!!!'){
+                    submitText.innerText = 'You entered wrong password';
+                    // console.log("Entered Wrong Password : Fooled Again!!!");
+                }
+                else{
+                    window.location.href = "http://127.0.0.1:5501/worst-ui/home.html";
+                }
+            });
+        </script> 
+        <script src="index.js"></script> 
+</body>
+</html>

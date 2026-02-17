@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p>Finally!!! welcome</p>
+    <p>Just click this to open real one</p>
+    <div class="final-box" id="container">
+        <a href="index.html" class="imhere" id="imhere">I'm here</a>
+    </div>
+
+    <script>
+        const btn = document.getElementById("imhere");
+        const container = document.getElementById("container");
+
+        btn.addEventListener("mouseover", function () {
+
+            const maxX = container.clientWidth - btn.offsetWidth;
+            const maxY = container.clientHeight - btn.offsetHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            btn.style.left = randomX + "px";
+            btn.style.top = randomY + "px";
+        });
+
+    </script>
+</body>
+
+</html>

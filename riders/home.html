@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riderrr</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "var(--primary)",
+                        secondary: "var(--secondary)",
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header class="p-5 bg-primary">
+        <nav class="flex justify-between justify-self-center items-center w-full px-20">
+            <div class="flex justify-center items-center">
+                <!-- <h1 class="text-3xl font-bold text-secondary">
+                    Riderrr
+                </h1> -->
+                <img src="/img/Reride_Logo.png" alt="logo" width="200px">
+            </div>
+            <div class="">
+                <ul class="flex ">
+                    <li class="m-1"><a href="/home.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Home</a></li>
+                    <li class="m-1"><a href="/buy.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Buy</a></li>
+                    <li class="m-1"><a href="/sell.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Sell</a></li>
+                    <li class="m-1"><a href="/contact.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Contact</a></li>
+                    <li class="m-1"><a href="/about.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="bg-primary">
+        <section class="hero w-full h-fit flex p-2">
+            <div class="flex justify-around">
+                <article class="w-2/5 p-5 h-fit">
+                    <header class="flex flex-col">
+                        <p
+                            class="w-fit pr-2 pl-2 pt-1 pb-1 text-secondary bg-white flex justify-between items-center gap-2 border-2 rounded-2xl font-bold text-xs">
+                            <i data-lucide="shield-check" class="text-green-500"></i>Verified listings in Bengaluru
+                        </p>
+                        <br>
+                        <p class="text-5xl font-semibold ">
+                            Re-Ride where every <br> bike gets second <br>
+                            <span
+                                class="inline-block bg-gradient-to-r from-indigo-500 to-blue-500 text-transparent bg-clip-text [-webkit-background-clip:text]">
+                                chance of love </span>
+                        </p>
+                    </header> <br>
+                    <hr> <br>
+                    <div class="justify-center align-center w-full h-fit">
+                        <div class="flex flex-col w-full">
+                            <div class="w-full flex flex-wrap justify-start align-center gap-5">
+                                <div class="w-full flex flex-wrap justify-between align-center gap-5">
+                                    <div class="flex text-secondary w-1/2">
+                                        <div class="flex justify-center items-start p-2">
+                                            <i data-lucide="wrench"
+                                                class="size-10 p-2 border-2 border-red rounded-xl bg-blue-50 text-blue-secondary"></i>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <p class="font-bold text-1xl">100% Refurbished</p>
+                                            <p class="text-xs">Re-Ride certified and restored to like new condition.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex text-secondary w-2/5">
+                                        <div class="flex justify-center items-start p-2">
+                                            <i data-lucide="shield"
+                                                class="size-10 p-2 border-2 border-red rounded-xl bg-green-50 text-green-400"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-1xl">Warranty & Service</p>
+                                            <p class="text-xs">Up to I-year warranty and free services included.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-full flex flex-wrap justify-between align-center gap-5">
+                                    <div class="flex text-secondary w-2/5">
+                                        <div class="flex justify-center items-start p-2">
+                                            <i data-lucide="credit-card"
+                                                class="size-10 p-2 border-2 border-red rounded-xl bg-pink-50 text-pink-400"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-1xl">Easy Financing</p>
+                                            <p class="text-xs">Finance up to 85% of the cost with instant approval.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex text-secondary w-2/5">
+                                        <div class="flex justify-center items-start p-2">
+                                            <i data-lucide="arrow-left-right"
+                                                class="size-10 p-2 border-2 border-red rounded-xl bg-blue-50 text-red-400"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-1xl">Easy Exchange</p>
+                                            <p class="text-xs">Sell or exchange your two-wheeler stress-free.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-2 flex">
+                                <button
+                                    class="m-2 pl-8 pr-8 pt-5 pb-5 bg-secondary border-2 border-primary rounded-xl text-white flex gap-2 font-semibold">
+                                    <i data-lucide="search"></i> Buy Used Bikes
+                                </button>
+                                <button
+                                    class="m-2 pl-8 pr-8 pt-5 pb-5 bg-white text-secondary border-2 rounded-xl border-secondary flex gap-2 font-semibold">
+                                    <i data-lucide="camera"></i> Sell Your Bike
+                                </button>
+                            </div> <br>
+                            <hr> <br>
+                        </div>
+                        <div class="w-4/5 flex flex-row justify-between gap-10">
+                            <div class="flex flex-col text-secondary">
+                                <p class="font-medium text-3xl">5k+</p>
+                                <p class="text-sm">Bikes sold</p>
+                            </div>
+                            <div class="flex flex-col text-secondary">
+                                <p class="font-medium text-3xl">Bengaluru</p>
+                                <p class="text-sm">Focus Area</p>
+                            </div>
+                            <div class="flex flex-col text-secondary">
+                                <p class="font-medium text-3xl">Verified</p>
+                                <p class="text-sm">Sellers</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="w-2/5">
+                    <div>
+                        <img src="/img/apache-bike-1.png" alt="">
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="flex flex-col max-w-6xl overflow-hidden mx-auto py-14">
+            <div class="flex flex-col justify-center items-center py-4">
+                <div class="flex justify-start items-center w-full  ">
+                    <p class="text-4xl font-medium text-secondary">Fresh Arrivals</p>
+                </div>
+                <div class="flex w-full justify-between text-secondary">
+                    <p>Handpicked bikes verified for quality and price.</p>
+                    <p class="flex">View All Inventory <i data-lucide="arrow-right"></i></p>
+                </div>
+            </div> <br>
+            <div class="px-60 flex justify-center">
+                <div class="swiperBikes swiperBikesCard max-w-6xl">
+                    <div class="swiper-wrapper">
+                        <article
+                            class="swiper-slide bg-white flex flex-col justify-between border-2 border-secondary rounded-xl w-sm h-fit shrink-0">
+                            <div class="flex justify-center align-center h-64 relative">
+                                <img src="/img/apache-bike-1.png" alt="" class="swiper-slide-img ">
+                                <span
+                                    class="absolute bg-blue-500 top-1 left-1 rounded-xl text-xs text-white font-medium px-2 py-1 z-2">New
+                                    Listing</span>
+                            </div>
+                            <div>
+                                <div class="flex justify-between px-3 py-1">
+                                    <p class="font-semibold text-2xl">Honda 1</p>
+                                    <p
+                                        class="bg-gray-100 bottom-1 right-1 rounded-md text-secondary font-medium px-2 py-1">
+                                        ₹ 2.2 Lakh</p>
+                                </div>
+                                <div class="px-3 flex text-sm text-gray-500">
+                                    <p>2022</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>50,000km</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>HSR Layout</p>
+                                </div>
+                                <div class="p-3"><button
+                                        class="bg-white text-secondary w-full border-2 border-secondary rounded-md p-2">View
+                                        Details</button></div>
+                            </div>
+                        </article>
+                        <article
+                            class="swiper-slide bg-white flex flex-col justify-between border-2 border-secondary rounded-xl w-sm h-fit shrink-0">
+                            <div class="flex justify-center align-center h-64 relative">
+                                <img src="/img/apache-bike-1.png" alt="" class="swiper-slide-img ">
+                                <span
+                                    class="absolute bg-blue-500 top-1 left-1 rounded-xl text-xs text-white font-medium px-2 py-1 z-2">New
+                                    Listing</span>
+                            </div>
+                            <div>
+                                <div class="flex justify-between px-3 py-1">
+                                    <p class="font-semibold text-2xl">Honda 1</p>
+                                    <p
+                                        class="bg-gray-100 bottom-1 right-1 rounded-md text-secondary font-medium px-2 py-1">
+                                        ₹ 2.2 Lakh</p>
+                                </div>
+                                <div class="px-3 flex text-sm text-gray-500">
+                                    <p>2022</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>50,000km</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>HSR Layout</p>
+                                </div>
+                                <div class="p-3"><button
+                                        class="bg-white text-secondary w-full border-2 border-secondary rounded-md p-2">View
+                                        Details</button></div>
+                            </div>
+                        </article>
+                        <article
+                            class="swiper-slide bg-white flex flex-col justify-between border-2 border-secondary rounded-xl w-sm h-fit shrink-0">
+                            <div class="flex justify-center align-center h-64 relative">
+                                <img src="/img/apache-bike-1.png" alt="" class="swiper-slide-img ">
+                                <span
+                                    class="absolute bg-blue-500 top-1 left-1 rounded-xl text-xs text-white font-medium px-2 py-1 z-2">New
+                                    Listing</span>
+                            </div>
+                            <div>
+                                <div class="flex justify-between px-3 py-1">
+                                    <p class="font-semibold text-2xl">Honda 1</p>
+                                    <p
+                                        class="bg-gray-100 bottom-1 right-1 rounded-md text-secondary font-medium px-2 py-1">
+                                        ₹ 2.2 Lakh</p>
+                                </div>
+                                <div class="px-3 flex text-sm text-gray-500">
+                                    <p>2022</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>50,000km</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>HSR Layout</p>
+                                </div>
+                                <div class="p-3"><button
+                                        class="bg-white text-secondary w-full border-2 border-secondary rounded-md p-2">View
+                                        Details</button></div>
+                            </div>
+                        </article>
+                        <article
+                            class="swiper-slide bg-white flex flex-col justify-between border-2 border-secondary rounded-xl w-sm h-fit shrink-0">
+                            <div class="flex justify-center align-center h-64 relative">
+                                <img src="/img/apache-bike-1.png" alt="" class="swiper-slide-img ">
+                                <span
+                                    class="absolute bg-blue-500 top-1 left-1 rounded-xl text-xs text-white font-medium px-2 py-1 z-2">New
+                                    Listing</span>
+                            </div>
+                            <div>
+                                <div class="flex justify-between px-3 py-1">
+                                    <p class="font-semibold text-2xl">Honda 1</p>
+                                    <p
+                                        class="bg-gray-100 bottom-1 right-1 rounded-md text-secondary font-medium px-2 py-1">
+                                        ₹ 2.2 Lakh</p>
+                                </div>
+                                <div class="px-3 flex text-sm text-gray-500">
+                                    <p>2022</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>50,000km</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>HSR Layout</p>
+                                </div>
+                                <div class="p-3"><button
+                                        class="bg-white text-secondary w-full border-2 border-secondary rounded-md p-2">View
+                                        Details</button></div>
+                            </div>
+                        </article>
+                        <article
+                            class="swiper-slide bg-white flex flex-col justify-between border-2 border-secondary rounded-xl w-sm h-fit shrink-0">
+                            <div class="flex justify-center align-center h-64 relative">
+                                <img src="/img/apache-bike-1.png" alt="" class="swiper-slide-img ">
+                                <span
+                                    class="absolute bg-blue-500 top-1 left-1 rounded-xl text-xs text-white font-medium px-2 py-1 z-2">New
+                                    Listing</span>
+                            </div>
+                            <div>
+                                <div class="flex justify-between px-3 py-1">
+                                    <p class="font-semibold text-2xl">Honda 1</p>
+                                    <p
+                                        class="bg-gray-100 bottom-1 right-1 rounded-md text-secondary font-medium px-2 py-1">
+                                        ₹ 2.2 Lakh</p>
+                                </div>
+                                <div class="px-3 flex text-sm text-gray-500">
+                                    <p>2022</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>50,000km</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>HSR Layout</p>
+                                </div>
+                                <div class="p-3"><button
+                                        class="bg-white text-secondary w-full border-2 border-secondary rounded-md p-2">View
+                                        Details</button></div>
+                            </div>
+                        </article>
+                        <article
+                            class="swiper-slide bg-white flex flex-col justify-between border-2 border-secondary rounded-xl w-sm h-fit shrink-0">
+                            <div class="flex justify-center align-center h-64 relative">
+                                <img src="/img/apache-bike-1.png" alt="" class="swiper-slide-img ">
+                                <span
+                                    class="absolute bg-blue-500 top-1 left-1 rounded-xl text-xs text-white font-medium px-2 py-1 z-2">New
+                                    Listing</span>
+                            </div>
+                            <div>
+                                <div class="flex justify-between px-3 py-1">
+                                    <p class="font-semibold text-2xl">Honda 1</p>
+                                    <p
+                                        class="bg-gray-100 bottom-1 right-1 rounded-md text-secondary font-medium px-2 py-1">
+                                        ₹ 2.2 Lakh</p>
+                                </div>
+                                <div class="px-3 flex text-sm text-gray-500">
+                                    <p>2022</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>50,000km</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>HSR Layout</p>
+                                </div>
+                                <div class="p-3"><button
+                                        class="bg-white text-secondary w-full border-2 border-secondary rounded-md p-2">View
+                                        Details</button></div>
+                            </div>
+                        </article>
+                        <article
+                            class="swiper-slide bg-white flex flex-col justify-between border-2 border-secondary rounded-xl w-sm h-fit shrink-0">
+                            <div class="flex justify-center align-center h-64 relative">
+                                <img src="/img/apache-bike-1.png" alt="" class="swiper-slide-img ">
+                                <span
+                                    class="absolute bg-blue-500 top-1 left-1 rounded-xl text-xs text-white font-medium px-2 py-1 z-2">New
+                                    Listing</span>
+                            </div>
+                            <div>
+                                <div class="flex justify-between px-3 py-1">
+                                    <p class="font-semibold text-2xl">Honda 1</p>
+                                    <p
+                                        class="bg-gray-100 bottom-1 right-1 rounded-md text-secondary font-medium px-2 py-1">
+                                        ₹ 2.2 Lakh</p>
+                                </div>
+                                <div class="px-3 flex text-sm text-gray-500">
+                                    <p>2022</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>50,000km</p>
+                                    <i data-lucide="dot"></i>
+                                    <p>HSR Layout</p>
+                                </div>
+                                <div class="p-3"><button
+                                        class="bg-white text-secondary w-full border-2 border-secondary rounded-md p-2">View
+                                        Details</button></div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-pagination relative mt-1"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex flex-col w-full h-fit">
+            <div class="flex justify-center items-center">
+                <p>How It Works</p>
+            </div>
+            <div class="flex flex-col justify-center items-center">
+                <div class="flex flex-row justify-center items-center w-2/5">
+                    <div class="flex flex-col justify-center items-center bg-blue-400">
+                        <p class="text-6xl">For</p>
+                        <p class="text-8xl">Buyers *****</p>
+                    </div>
+                    <div class="flex flex-row justify-center items-center w-3/5 m-2">
+                        <div>
+                            <div class="flex flex-col justify-between size-48 bg-red-400">
+                                <div>
+                                    <p>01</p>
+                                    <p>Browse</p>
+                                </div>
+                                <div>
+                                    <p>Over 100s of Bikes waiting for you</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col justify-between size-48 bg-red-400">
+                                <div>
+                                    <p>01</p>
+                                    <p>Browse</p>
+                                </div>
+                                <div>
+                                    <p>Over 100s of Bikes waiting for you</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex flex-col justify-between size-48 bg-red-400">
+                                <div>
+                                    <p>01</p>
+                                    <p>Browse</p>
+                                </div>
+                                <div>
+                                    <p>Over 100s of Bikes waiting for you</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col justify-between size-48 bg-red-400">
+                                <div>
+                                    <p>01</p>
+                                    <p>Browse</p>
+                                </div>
+                                <div>
+                                    <p>Over 100s of Bikes waiting for you</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <p>01</p>
+                                <p>Browse</p>
+                            </div>
+                            <div>
+                                <p>Over 100s of Bikes waiting for you</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <p>01</p>
+                                <p>Browse</p>
+                            </div>
+                            <div>
+                                <p>Over 100s of Bikes waiting for you</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <p>01</p>
+                                <p>Browse</p>
+                            </div>
+                            <div>
+                                <p>Over 100s of Bikes waiting for you</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <p>01</p>
+                                <p>Browse</p>
+                            </div>
+                            <div>
+                                <p>Over 100s of Bikes waiting for you</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <p>01</p>
+                                <p>Browse</p>
+                            </div>
+                            <div>
+                                <p>Over 100s of Bikes waiting for you</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>For</p>
+                        <p>Sellers *****</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="index.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
