@@ -1,0 +1,19 @@
+body{
+    background-color: red;
+}
+
+.index-main{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.index-main a{
+    position: relative;
+    padding: 20px;
+    border: 2px dotted black;
+    background-color: aqua;
+}

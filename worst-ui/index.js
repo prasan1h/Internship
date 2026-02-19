@@ -54,6 +54,6 @@ yesBtn.onclick = function(){
 noBtn.onclick = function(){
   nocount++;
   if(nocount == 1){noBtn.innerHTML = 'dont click here if you dont want to signup'}
-  if(nocount == 2){window.location.href ="http://127.0.0.1:5501/worst-ui/signin.html";}
+  if(nocount == 2){window.location.href ="http://127.0.0.1:5501/signin.html"}
 }
 
