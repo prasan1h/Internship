@@ -17,3 +17,18 @@ body{
     border: 2px dotted black;
     background-color: aqua;
 }
+
+.auth{
+    display: flex;
+    justify-content: space-between;
+}
+
+.enter{
+    text-align: center;
+    border: 2px dotted black;
+    background-color: aqua;
+}
+
+.enter:hover{
+    text-align: start;
+}
