@@ -37,10 +37,10 @@
                             class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Buy</a></li>
                     <li class="m-1"><a href="/sell.html"
                             class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Sell</a></li>
-                    <li class="m-1"><a href="/contact.html"
-                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Contact</a></li>
                     <li class="m-1"><a href="/about.html"
                             class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">About</a></li>
+                    <li class="m-1"><a href="/contact.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -48,61 +48,47 @@
 
 
     <main>
-        <section class="flex flex-row justify-between">
+        <section class="flex flex-row justify-between  border-b-[1px] border-gray-200">
             <div class="px-8 py-2">
                 <p class="text-3xl py-2 text-secondary">Book Your Vehicle</p>
                 <p class="text-md text-gray-500">142 Riderrr Certified Bikes are available in Bengaluru</p>
             </div>
             <div class="flex justify-end items-center pr-[110px]">
-                <div class="m-0 px-2 flex justify-between items-center gap-0 border-2 border-secondary rounded-xl w-96">
-                    <input type="text" id="searchBuy" placeholder="Search by Model Name"
-                        class="py-3 m-0 w-full placeholder:p-3 focus:border-none focus:outline-none" autocomplete="off">
-                    <button class="flex items-center " onclick="searchBuy()"><i data-lucide="search" class="w-6 mx-1"></i></button>
+                <div class="m-0 px-2 flex justify-between items-center gap-0 rounded-xl w-96">
+                    <input type="text" id="searchBuy" placeholder="Search by Brand / Model"
+                        class="py-3 px-3 m-0 w-full focus:border-secondary focus:px-3 border-2 border-secondary rounded-l-xl" autocomplete="off">
+                    <button class="flex items-center border-2 border-secondary p-3 rounded-r-xl" onclick="searchBuy()"><i data-lucide="search" class="w-6 mx-1"></i></button>
                 </div>
             </div>
         </section>
 
-        <section class="bg-primary flex">
-            <aside class="w-1/4 static">
+        <section class="flex">
+            <aside class="w-1/6  sticky top-0 h-fit bg-white">
                 <!-- color availability brand branch(location) year-range price-range -->
-                <div class="flex flex-row justify-between px-8 py-5 static top-0 right-0 left-0">
+                <div class="flex flex-row justify-between px-8 py-5 static top-0 right-0 left-0 text-secondary">
                     <p class="text-2xl font-semibold">Filters</p>
                     <button class="underline" id="clearFilterBtn">Clear all</button>
                 </div>
                 <div class="px-8 py-5">
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1 mb-3">
                         <div class="text-2xl">Price Range :</div>
-                        <!-- <div class="flex flex-col gap-1">
-                            <label>
-                                <input type="radio" name="price" value="0-150000">
-                                Below 1.5L
-                            </label>
-                            <label>
-                                <input type="radio" name="price" value="150000-250000">
-                                1.5L - 2.5L
-                            </label>
-                            <label>
-                                <input type="radio" name="price" value="250000-500000">
-                                Above 2.5L
-                            </label>
-                        </div> -->
                         <div class="flex flex-row flex-wrap gap-2">
-                            <label class=" cursor-pointer">
+                            <label class=" cursor-pointer text-white">
                                 <input type="checkbox" name="price" id="" value="0-150000" class="peer hidden">
                                 <span
-                                    class=" text-xs bg-gray-200 px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">Below
+                                    class=" text-xs bg-secondary px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">Below
                                     1.5L</span>
                             </label>
-                            <label class=" cursor-pointer">
+                            <label class=" cursor-pointer text-white">
                                 <input type="checkbox" name="price" id="" value="150000-250000" class="peer hidden">
                                 <span
-                                    class=" text-xs bg-gray-200 px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">1.5L
+                                    class=" text-xs bg-secondary px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">1.5L
                                     - 2.5L</span>
                             </label>
-                            <label class=" cursor-pointer">
+                            <label class=" cursor-pointer text-white">
                                 <input type="checkbox" name="price" id="" value="250000-500000" class="peer hidden">
                                 <span
-                                    class=" text-xs bg-gray-200 px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">Above
+                                    class=" text-xs bg-secondary px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">Above
                                     2.5L</span>
                             </label>
                         </div>
@@ -110,9 +96,9 @@
                     
 
 
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1  text-secondary mb-3">
                         <div class="text-2xl">Brand :</div>
-                        <div class="flex flex-col gap-1">
+                        <div class="flex flex-col gap-0">
                             <label>
                                 <input type="checkbox" name="brand" id="" value="KTM">
                                 KTM
@@ -135,44 +121,44 @@
                             </label>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1  text-secondary mb-3">
                         <div class="text-2xl">Year Range :</div>
                         <div class="flex flex-row flex-wrap gap-2">
-                            <label class=" cursor-pointer">
+                            <label class=" cursor-pointer text-white">
                                 <input type="checkbox" name="year" id="" value="2019-2020" class="peer hidden">
                                 <span
-                                    class=" text-xs bg-gray-200 px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2019-2020</span>
+                                    class=" text-xs bg-secondary px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2019-2020</span>
                             </label>
-                            <label class=" cursor-pointer">
+                            <label class=" cursor-pointer text-white">
                                 <input type="checkbox" name="year" id="" value="2020-2021" class="peer hidden">
                                 <span
-                                    class=" text-xs bg-gray-200 px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2020-2021</span>
+                                    class=" text-xs bg-secondary px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2020-2021</span>
                             </label>
-                            <label class=" cursor-pointer">
+                            <label class=" cursor-pointer text-white">
                                 <input type="checkbox" name="year" id="" value="2021-2022" class="peer hidden">
                                 <span
-                                    class=" text-xs bg-gray-200 px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2021-2022</span>
+                                    class=" text-xs bg-secondary px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2021-2022</span>
                             </label>
-                            <label class=" cursor-pointer">
+                            <label class=" cursor-pointer text-white">
                                 <input type="checkbox" name="year" id="" value="2022-2023" class="peer hidden">
                                 <span
-                                    class=" text-xs bg-gray-200 px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2022-2023</span>
+                                    class=" text-xs bg-secondary px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2022-2023</span>
                             </label>
-                            <label class=" cursor-pointer">
+                            <label class=" cursor-pointer text-white">
                                 <input type="checkbox" name="year" id="" value="2023-2024" class="peer hidden">
                                 <span
-                                    class=" text-xs bg-gray-200 px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2023-2024</span>
+                                    class=" text-xs bg-secondary px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2023-2024</span>
                             </label>
-                            <label class=" cursor-pointer">
+                            <label class=" cursor-pointer text-white">
                                 <input type="checkbox" name="year" id="" value="2024-2025" class="peer hidden">
                                 <span
-                                    class=" text-xs bg-gray-200 px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2024-2025</span>
+                                    class=" text-xs bg-secondary px-2 py-1 border-2  border-secondary rounded-full  peer-checked:bg-white peer-checked:text-secondary peer-checked:border-secondary">2024-2025</span>
                             </label>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1  text-secondary mb-3">
                         <div class="text-2xl">Color :</div>
-                        <div class="flex flex-col gap-1">
+                        <div class="flex flex-col gap-0">
                             <label>
                                 <input type="checkbox" name="color" id="" value="Red">
                                 Red
@@ -200,17 +186,17 @@
                 </div>
                 </div>
             </aside>
-            <div class="flex flex-col w-3/4">
+            <div class="flex flex-col bg-primary p-5 w-5/6">
                 <div class="flex flex-row justify-between py-5 mr-10">
                     <div class="flex text-xl gap-2 justify-center items-center"><span id="listcount"
                             class="text-md font-semibold"></span></div>
-                    <div class="flex">
-                        <div>
-                            <p>Sort By</p>
+                    <div class="flex px-5 items-center gap-1">
+                        <div class="flex items-center mx-1">
+                            <p class="text-xl font-semibold">Sort By</p>
                         </div>
-                        <div>
-                            <select name="sortBuy" id="sortBuy">
-                                <option value="" selected>Choose here</option>
+                        <div class="">
+                            <select name="sortBuy" id="sortBuy" class="border-2 border-secondary px-2 py-1 rounded-md">
+                                <option value="" class="text-gray-200">Default</option>
                                 <option value="rating_htl">Ratings</option>
                                 <option value="vehicle_model_year_lth">Model year (low - high)</option>
                                 <option value="vehicle_model_year_htl">Model year (high - low)</option>
@@ -220,9 +206,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col justify-start items-start min-h-screen" id="listings">
-                    <ul class="flex flex-wrap justify-start items-start " id="ulist"></ul>
-                    <button id="loadMoreBtn" class="px-2 py-1 bg-white rounded-xl">Load More</button>
+                <div class="flex justify-center min-h-screen" id="listings">
+                    <div class="flex w-5/6 flex-col">
+                        <ul class="flex flex-wrap justify-start items-start " id="ulist"></ul>
+                        <div class="flex justify-center">
+                            <button id="loadMoreBtn" class="px-2 py-1 bg-white rounded-xl justify-self-center">Load More</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -297,7 +287,9 @@
         lucide.createIcons();
     </script>
     <script src="index.js"></script>
-    <script src="script/buy.js"></script>
+    <!-- <script src="script/buy.js"></script> -->
+         <script src="script/buy1.js"></script>
+
 </body>
 
 </html>
