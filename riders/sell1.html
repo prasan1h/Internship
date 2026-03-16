@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "var(--primary)",
+                        secondary: "var(--secondary)",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header class="p-5 bg-primary">
+        <nav class="flex justify-between justify-self-center items-center w-full px-20">
+            <div class="flex justify-center items-center">
+                <img src="/img/Reride_Logo.png" alt="logo" width="200px">
+            </div>
+            <div class="">
+                <ul class="flex ">
+                    <li class="m-1"><a href="/home.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Home</a></li>
+                    <li class="m-1"><a href="/buy.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Buy</a></li>
+                    <li class="m-1"><a href="/sell.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Sell</a></li>
+                    <li class="m-1"><a href="/about.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">About</a></li>
+                    <li class="m-1"><a href="/contact.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <section>
+            <div class="flex flex-col pb-14">
+                <div class="w-full flex justify-end px-14 py-3">
+                    <p id="steps">/10</p>
+                </div>
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex border-2 border-gray-300 rounded-t-md p-3">
+                        <div class="p-5">
+                            <i data-lucide="arrow-left"></i>
+                        </div>
+                        <div class="flex flex-wrap gap-3" id="step-menu">
+                            <button
+                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-brand">Brand</button>
+                            <button
+                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-vehicle_type">Vehicle Type</button>
+                            <button
+                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-model">Model</button>
+                            <button
+                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-model-year">Model Year</button>
+                            <button
+                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-vehicle-colour">Colour</button>
+                            <button
+                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-purchase-details">Purchase Details</button>
+                            <button
+                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-owner-type">Owner</button>
+                            <button
+                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-reg-photos">Photos & Registration</button>
+                            <button
+                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-inspection">Inspection</button>
+                            <button
+                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-contact">Contact</button>
+                        </div>
+                    </div>
+
+                    <div class=" border-2 border-gray-300 pb-10 px-8" id="brand">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Select the Brand of your two-wheeler</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 justify-start">
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">TVS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" border-2 border-gray-300 pb-10 px-8" id="vehicle-type">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Select the Type of your two-wheeler</p>
+                        </div>
+                        <div class="w-full flex flex-wrap gap-2 justify-center">
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-[160px] text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">Bike</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-[160px] text-center">
+                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                                <p class="text-xl font-bold">Scooter</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" border-2 border-gray-300 pb-10 px-8" id="model">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Select the Model of your two-wheeler</p>
+                        </div>
+                        <div class="w-full flex flex-wrap gap-2 justify-center">
+                            <div class="border-2 border-gray-300 rounded-xl w-full flex">
+                                <input type="text" placeholder="Search the Model Name"
+                                    class="w-full px-2 py-4  rounded-xl">
+                                <div class="flex items-center p-2"><i data-lucide="search"></i></div>
+                            </div>
+                            <div>
+                                <ul></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" border-2 border-gray-300 pb-10 px-8" id="model-year">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Select the Model Year of your two-wheeler</p>
+                        </div>
+                        <div class="w-full flex flex-wrap gap-2 justify-start">
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2026</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2025</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2024</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2023</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2022</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2021</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2020</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2019</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2018</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2017</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2016</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2015</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2014</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2013</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2012</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2011</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2010</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2009</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2008</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2007</div>
+                            <div
+                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
+                                2006</div>
+
+                        </div>
+                    </div>
+
+                    <div class=" border-2 border-gray-300 pb-10 px-8" id="vehicle-colour">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Select the Colour of your two-wheeler</p>
+                        </div>
+                        <div class="w-full flex flex-wrap justify-center">
+                            <div
+                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
+                                <p>Red</p>
+                            </div>
+                            <div
+                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
+                                <p>White</p>
+                            </div>
+                            <div
+                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
+                                <p>Black</p>
+                            </div>
+                            <div
+                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
+                                <p>Blue</p>
+                            </div>
+                            <div
+                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
+                                <p>Gray</p>
+                            </div>
+                            <div
+                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
+                                <p>Green</p>
+                            </div>
+                            <div
+                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
+                                <p>Yellow</p>
+                            </div>
+                            <div
+                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
+                                <p>Orange</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" border-2 border-gray-300 pb-10 px-8" id="purchase-details">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Enter the Purchase Details</p>
+                        </div>
+                        <div class="flex flex-col gap-5">
+                            <div>
+                                <div>
+                                    <p>Purchase Date</p>
+                                </div>
+                                <div><input type="date" name="" id=""
+                                        class="w-full border-2 border-gray-200 rounded-md px-4 py-2 "></div>
+                            </div>
+                            <div>
+                                <div>
+                                    <p>Purchase Amount(₹)</p>
+                                </div>
+                                <div><input type="number" name="" id=""
+                                        class="w-full border-2 border-gray-200 rounded-md px-4 py-2 "></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" border-2 border-gray-300 pb-10 px-8" id="owner-type">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Select Owner Type</p>
+                        </div>
+                        <div class="flex gap-5">
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center w-56">
+                                <div class="flex justify-center p-2"><i data-lucide="person-standing"
+                                        class="bg-gray-100 p-2 size-12 border-2 border-gray-200 rounded-md"></i></div>
+                                <p class="text-xl font-bold">1st Owner</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center w-56">
+                                <div class="flex justify-center p-2"><i data-lucide="person-standing"
+                                        class="bg-gray-100 p-2 size-12 border-2 border-gray-200 rounded-md"></i></div>
+                                <p class="text-xl font-bold">2nd Owner</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center w-56">
+                                <div class="flex justify-center p-2"><i data-lucide="person-standing"
+                                        class="bg-gray-100 p-2 size-12 border-2 border-gray-200 rounded-md"></i></div>
+                                <p class="text-xl font-bold">3rd Owner</p>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center w-56">
+                                <div class="flex justify-center p-2"><i data-lucide="person-standing"
+                                        class="bg-gray-100 p-2 size-12 border-2 border-gray-200 rounded-md"></i></div>
+                                <p class="text-xl font-bold">4+ Owner</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class=" border-2 border-gray-300 pb-10 px-8" id="reg-photo">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Vehicle Registration & Photos</p>
+                        </div>
+                        <div class="flex flex-col gap-5">
+                            <div class="flex flex-col gap-2">
+                                <div>
+                                    <p>Enter Vehicle Registration Number</p>
+                                </div>
+                                <div><input type="text" name="" id="" placeholder="E.g, KA ** XX ****"
+                                        class="w-full border-2 border-gray-200 rounded-md px-4 py-2 "></div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-semibold py-5">
+                                    <p>Clicks few Pictures of your Vehicle</p>
+                                </div>
+                                <div class="flex flex-wrap justify-start gap-2 ">
+                                    <div class="h-56 w-78 p-2 border-2 border-gray-200 rounded-md flex flex-col justify-between">
+                                        <div class="flex flex-col justify-center py-3 gap-4">
+                                            <div class="flex justify-center py-1 h-fit"><i data-lucide="camera" class="size-16 bg-gray-100 p-5 border-2 border-gray-300 rounded-md"></i></div>
+                                            <div class="flex justify-center py-1 text-center w-72"><p>Take a Picture of your Bike in Front view</p></div>
+                                        </div>
+                                        <div><button class="w-full bg-secondary text-white font-semibold rounded-md py-2 ">Upload Front View</button></div>
+                                    </div>
+                                    <div class="h-56 w-78 p-2 border-2 border-gray-200 rounded-md flex flex-col justify-between">
+                                        <div class="flex flex-col justify-center py-3 gap-4">
+                                            <div class="flex justify-center py-1 h-fit"><i data-lucide="camera" class="size-16 bg-gray-100 p-5 border-2 border-gray-300 rounded-md"></i></div>
+                                            <div class="flex justify-center py-1 text-center w-72"><p>Take a Picture of your Bike in Rear view</p></div>
+                                        </div>
+                                        <div><button class="w-full bg-secondary text-white font-semibold rounded-md py-2 ">Upload Rear View</button></div>
+                                    </div>
+                                    <div class="h-56 w-78 p-2 border-2 border-gray-200 rounded-md flex flex-col justify-between">
+                                        <div class="flex flex-col justify-center py-3 gap-4">
+                                            <div class="flex justify-center py-1 h-fit"><i data-lucide="camera" class="size-16 bg-gray-100 p-5 border-2 border-gray-300 rounded-md"></i></div>
+                                            <div class="flex justify-center py-1 text-center w-72"><p>Take a Picture of your Bike From Right Side</p></div>
+                                        </div>
+                                        <div><button class="w-full bg-secondary text-white font-semibold rounded-md py-2 ">Upload Rigth Side</button></div>
+                                    </div>
+                                    <div class="h-56 w-78 p-2 border-2 border-gray-200 rounded-md flex flex-col justify-between">
+                                        <div class="flex flex-col justify-center py-3 gap-4">
+                                            <div class="flex justify-center py-1 h-fit"><i data-lucide="camera" class="size-16 bg-gray-100 p-5 border-2 border-gray-300 rounded-md"></i></div>
+                                            <div class="flex justify-center py-1 text-center w-72"><p>Take a Picture of your Bike From Left Side</p></div>
+                                        </div>
+                                        <div><button class="w-full bg-secondary text-white font-semibold rounded-md py-2 ">Upload Left Side</button></div>
+                                    </div>
+                                    <div class="h-56 w-78 p-2 border-2 border-gray-200 rounded-md flex flex-col justify-between">
+                                        <div class="flex flex-col justify-center py-3 gap-4">
+                                            <div class="flex justify-center py-1 h-fit"><i data-lucide="camera" class="size-16 bg-gray-100 p-5 border-2 border-gray-300 rounded-md"></i></div>
+                                            <div class="flex justify-center py-1 text-center w-72"><p>Take a Picture of your Bike's Dashboard</p></div>
+                                        </div>
+                                        <div><button class="w-full bg-secondary text-white font-semibold rounded-md py-2 ">Upload Bike's Dashboard</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" border-2 border-gray-300 pb-10 px-8" id="inspection">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Provide the Inspection Details</p>
+                        </div>
+                        <div class="flex flex-col gap-5">
+                            <div>
+                                <div>
+                                    <p>Inspection Date</p>
+                                </div>
+                                <div><input type="date" name="" id=""
+                                        class="w-full border-2 border-gray-200 rounded-md px-4 py-2 "></div>
+                            </div>
+                            <div>
+                                <div>
+                                    <p>Inspection Branch</p>
+                                </div>
+                                <div>
+                                    <select name="" id="" class="w-full border-2 border-gray-200 px-4 py-2 rounded-md peer:px-2">
+                                        <option value="">-- select branch --</option>
+                                        <option value="Bengaluru">Bengaluru</option>
+                                        <option value="Mysuru">Mysuru</option>
+                                        <option value="Tumkuru">Tumkuru</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" border-2 border-gray-300 pb-10 px-8" id="contact-info">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Contact Information</p>
+                        </div>
+                        <div class="flex flex-col max-w-md mx-auto">
+                            <form action="">
+                                <div class="flex flex-col my-4 gap-3">
+                                    <label for="" class="w-full text-xl font-semibold">Full Name</label>
+                                    <input type="text" class="border-2 border-gray-200 rounded-md py-2 px-3">
+                                </div>
+                                <div class="flex flex-col my-4 gap-3">
+                                    <label for="" class="w-full text-xl font-semibold">Mobile Number</label>
+                                    <input type="number" class="border-2 border-gray-200 rounded-md py-2 px-3">
+                                </div>
+                                <div class="flex flex-col my-4 gap-3">
+                                    <label for="" class="w-full text-xl font-semibold">Email Address</label>
+                                    <input type="email" class="border-2 border-gray-200 rounded-md py-2 px-3">
+                                </div>
+                                <div>
+                                    <button type="submit" class="w-full py-3 bg-secondary text-white text-center rounded-md">Submit Vehicle Details</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="bg-white">
+        <section class="bg-secondary py-10">
+            <article class="bg-white max-w-6xl mx-auto rounded-[30px] flex flex-col py-10 ">
+                <div class="text-center text-secondary text-5xl font-semibold py-3">
+                    <p>Ready for Ride ?</p>
+                </div>
+                <div class="text-center text-secondary text-md pb-6">
+                    <p>Whether you are upgrading or selling, we make it simple.</p>
+                </div>
+                <div class="flex flex-row justify-center items-center gap-5">
+                    <button
+                        class="border-2 border-secondary rounded-full bg-white text-secondary px-7 py-2 text-xl text-center align-middle font-bold">Buy
+                        a Bike</button>
+                    <button
+                        class="border-2 border-primary bg-secondary text-white rounded-full px-7 py-2 text-xl text-center align-middle font-bold">Sell
+                        Your Bike</button>
+                </div>
+            </article>
+            <article>
+                <div class="flex flex-col max-w-6xl mx-auto gap-5 py-10">
+                    <div class="flex flex-row justify-center">
+                        <div class="w-1/3"><img src="img/logo white.png" alt="logo" width="200px"></div>
+                        <div class="w-1/3 text-white text-2xl font-bold pl-20">
+                            <p>Quick Links</p>
+                        </div>
+                        <div class="w-1/3 text-white text-2xl font-bold pl-20">
+                            <p>Contact Us</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row justify-center">
+                        <div class="w-1/3 text-white">
+                            <p>Trusted by thousands of riders in Bengaluru.
+                                The safest way to buy and sell used two-wheelers.</p>
+                        </div>
+                        <div class="w-1/3 text-white pl-20">
+                            <ul class="flex flex-col gap-3">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Privacy Policies</a></li>
+                            </ul>
+                        </div>
+                        <div class="w-1/3 text-white flex flex-col gap-5  pl-20">
+                            <div class="flex flex-col ">
+                                <p>Jalahalli, Bengaluru, KA 560003</p>
+                                <p>support@reride.com</p>
+                            </div>
+                            <div class="flex gap-8">
+                                <a href=""><i data-lucide="facebook"></i></a>
+                                <a href=""><i data-lucide="instagram"></i></a>
+                                <a href=""><i data-lucide="twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <div class="bg-secondary flex justify-center text-white text-center pb-[35px]">
+            <p> &copy; 2026 ReRide Bikes. design and developed by thincnext</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="index.js"></script>
+    <script src="script/sell.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

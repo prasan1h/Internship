@@ -37,9 +37,6 @@ colorChecks.forEach((cb) => {
   cb.addEventListener("change", applyFilters);
 });
 
-// Fixed: Added 'input' event for real-time search
-// document.getElementById("searchBuy").addEventListener("input", searchBuy);
-// document.getElementById("searchBuy").addEventListener("change", blankSearch);
 sortSelect.addEventListener("change", sortAll);
 clearFilterBtn.addEventListener("click", clearAll);
 
@@ -138,7 +135,19 @@ function displayList(data) {
   loadMoreBtn.onclick = loadItems;
 }
 
-// Fixed: Properly updates search data and triggers display update
+document.getElementById("searchBuy").addEventListener("mouseout", blankSearch);
+
+function blankSearch() {
+  const search_value = document.getElementById("searchBuy").value;
+  if (search_value == "") {
+    displayList(dataList);
+    listcount.innerText = `Found ${dataList.length} Bikes`;
+    clearAll();
+  } else {
+    return;
+  }
+}
+
 function searchBuy() {
   const search_input = document.getElementById("searchBuy");
   let filter = search_input.value.toUpperCase();
@@ -154,43 +163,26 @@ function searchBuy() {
     });
   }
 
-  // Reapply filters on the search results
   applyFilters();
 }
 
-// function blankSearch() {
-//   const search_value = document.getElementById("searchBuy").value;
-//   if (search_value == "") {
-//     displayList(dataList);
-//     listcount.innerText = `Found ${dataList.length} Bikes`;
-//     clearAll();
-//   } else {
-//     return;
-//   }
-// }
-
-// Fixed: Now properly determines which data to work with
 function getCurrentData() {
-  // Priority: filtered data > search data > all data
   if (filteredData.length > 0) {
     return filteredData;
   } else if (searchData.length > 0) {
     return searchData;
   } else if (searchData.length === 0 && isSearchActive()) {
-    // Search is active but returned no results
     return [];
   } else {
     return dataList;
   }
 }
 
-// Helper function to check if search is active
 function isSearchActive() {
   const search_input = document.getElementById("searchBuy");
   return search_input.value.trim() !== "";
 }
 
-// Helper function to check if filters are active
 function isFilterActive() {
   const selectedPrice = getCheckedValue(priceChecks);
   const selectedBrand = getCheckedValue(brandChecks);
@@ -205,12 +197,10 @@ function isFilterActive() {
   );
 }
 
-// Fixed: Sorting now works with any combination of search/filter
 function sortAll() {
   updateDisplay();
 }
 
-// New unified function to handle display updates
 function updateDisplay() {
   let currentData = getDataToDisplay();
   let sortedData = applySorting(currentData);
@@ -219,13 +209,11 @@ function updateDisplay() {
   updateListCount(sortedData.length);
 }
 
-// Gets the correct data based on search and filter state
 function getDataToDisplay() {
   const search_input = document.getElementById("searchBuy");
   let filter = search_input.value.toUpperCase().trim();
-
-  // Step 1: Apply search if active
   let workingData = dataList;
+
   if (filter !== "") {
     workingData = dataList.filter((bike) => {
       return (
@@ -235,7 +223,6 @@ function getDataToDisplay() {
     });
   }
 
-  // Step 2: Apply filters if active
   const selectedPrice = getCheckedValue(priceChecks);
   const selectedBrand = getCheckedValue(brandChecks);
   const selectedYear = getCheckedValue(yearChecks);
@@ -283,7 +270,6 @@ function getDataToDisplay() {
   return workingData;
 }
 
-// Applies the current sort selection to data
 function applySorting(data) {
   let valueSort = sortSelect.value;
 
@@ -314,7 +300,6 @@ function applySorting(data) {
   return [...data];
 }
 
-// Updates the count display
 function updateListCount(count) {
   if (count === dataList.length) {
     listcount.innerText = `Found ${dataList.length} Bikes`;
@@ -323,24 +308,13 @@ function updateListCount(count) {
   }
 }
 
-// Fixed: Clears all filters and search, resets display
 function clearAll() {
-  // Clear all checkboxes
   document
     .querySelectorAll('input[type="checkbox"]')
     .forEach((input) => (input.checked = false));
 
-  // Clear search input
-  // document.getElementById("searchBuy").value = "";
-
-  // Reset sort to default
-  // sortSelect.value = "";
-
-  // Reset data arrays
-  // searchData = [];
   filteredData = [];
 
-  // Update display
   updateDisplay();
 }
 
@@ -348,7 +322,6 @@ function getCheckedValue(checks) {
   return [...checks].filter((cb) => cb.checked).map((cb) => cb.value);
 }
 
-// Fixed: Now just triggers the unified update function
 function applyFilters() {
   updateDisplay();
 }
