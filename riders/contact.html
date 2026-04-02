@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy</title>
+    <title>Contact -- Riderr</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
@@ -48,60 +48,97 @@
     </header>
 
     <main>
-        <section class="w-full flex justify-center py-14 bg-primary">
-            <div class="text-center max-w-6xl">
-                <div class="flex justify-center">
-                    <i data-lucide="contact" class="size-24 p-2 rounded-xl bg-blue-50 text-secondary"></i>
+
+        <!-- HERO SECTION -->
+        <section class="w-full py-20 bg-primary">
+            <div class="max-w-5xl mx-auto text-center px-6">
+
+                <!-- Icon -->
+                <div class="flex justify-center mb-6">
+                    <div class="p-5 rounded-2xl bg-blue-50 shadow">
+                        <i data-lucide="contact" class="size-16 text-secondary"></i>
+                    </div>
                 </div>
-                <div>
-                    <p class="text-5xl py-5 text-secondary font-semibold">Get in Touch</p>
-                </div>
-                <div>
-                    <p class="text-xl max-w-2xl text-secondary">Please feel free to reach us, we are here to help you. If you any
-                        queries, then just call, email or reach our branches at respective locations. Our team will
-                        respond within the few hours even on off working hours.
-                    </p>
-                </div>
+
+                <!-- Heading -->
+                <h1 class="text-5xl md:text-6xl font-bold text-secondary leading-tight">
+                    Get in Touch
+                </h1>
+
+                <!-- Description -->
+                <p class="mt-6 text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto leading-relaxed">
+                    Feel free to reach out to us anytime. Whether you have questions, need support,
+                    or want to explore our services, our team is always ready to help you —
+                    even beyond working hours.
+                </p>
+
             </div>
         </section>
 
-        <section class="w-full">
-            <div class="max-w-7xl flex flex-wrap justify-self-center">
-                <div class="w-1/2 p-4">
-                    <div class="text-4xl font-bold py-3 text-secondary">
-                        <p>Accelerate you Riding Style</p>
-                    </div>
-                    <div class="text-md py-3 text-secondary text-justify">
-                        <p>Your evolution from enthusiast to expert starts with a single conversation. Reach out today and let's get you on the fast track to peak performance. Ready to bridge the gap between where you are and where you want to be? Let's build a custom plan to help you ride with more confidence and precision than ever before.</p>
+
+        <!-- CONTACT + FORM SECTION -->
+        <section class="w-full py-20 bg-primary">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
+
+                <!-- LEFT CONTENT -->
+                <div>
+                    <h2 class="text-4xl font-bold text-secondary mb-4">
+                        Accelerate Your Riding Style
+                    </h2>
+
+                    <p class="text-secondary/80 leading-relaxed text-lg">
+                        Your journey from enthusiast to expert begins with a conversation.
+                        Connect with us today and take the next step toward better riding,
+                        smarter decisions, and unmatched confidence on the road.
+                    </p>
+
+                    <!-- Optional highlight box -->
+                    <div class="mt-8 p-5 rounded-2xl bg-white shadow">
+                        <p class="text-secondary font-medium">
+                            🚀 Quick Response Guarantee
+                        </p>
+                        <p class="text-sm text-secondary/70 mt-2">
+                            Our team usually responds within a few hours.
+                        </p>
                     </div>
                 </div>
-                <div class="w-1/2 p-4">
-                    <form action="">
-                        <div class="flex flex-col gap-4">
-                            <div class="flex flex-wrap gap-4">
-                                <input type="text" placeholder="Name"
-                                    class="w-[280px] border-2 border-gray-400 rounded-md py-1 px-2">
-                                <input type="text" placeholder="Email"
-                                    class="w-[280px] border-2 border-gray-400 rounded-md py-1 px-2">
-                            </div>
-                            <div class="flex flex-wrap gap-4">
-                                <input type="text" placeholder="Subject"
-                                    class="w-[280px] border-2 border-gray-400 rounded-md py-1 px-2">
-                                <input type="number" placeholder="Contact Number"
-                                    class="w-[280px] border-2 border-gray-400 rounded-md py-1 px-2">
-                            </div>
-                            <div>
-                                <textarea placeholder="Type your Meassage Here"
-                                    class="w-[576px] h-48 border-2 border-gray-400 rounded-md py-2 px-2"></textarea>
-                            </div>
-                            <div><button type="submit"
-                                    class="w-fit py-2 px-3 bg-secondary border-2 border-secondary rounded-xl text-white text-md font-bold">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+
+                <!-- FORM -->
+                <form class="bg-white p-8 rounded-2xl shadow-lg space-y-5">
+
+                    <!-- Row 1 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Name"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+
+                        <input type="email" placeholder="Email"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Subject"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+
+                        <input type="tel" placeholder="Contact Number"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                    </div>
+
+                    <!-- Message -->
+                    <textarea rows="5" placeholder="Type your message here..."
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"></textarea>
+
+                    <!-- Button -->
+                    <button type="submit"
+                        class="w-full bg-secondary text-white py-3 rounded-xl font-semibold hover:opacity-90 transition duration-300">
+                        Send Message
+                    </button>
+
+                </form>
+
             </div>
         </section>
+
 
         <section class="bg-secondary">
             <div class="flex max-w-5xl mx-auto justify-center py-14">
@@ -143,7 +180,10 @@
 
         <section>
             <div class="max-w-7xl mx-auto py-14">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29554.989643931447!2d77.51848334625096!3d13.055802485090508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d5cd10c0627%3A0xd11ad0f9a74b526d!2sJalahalli%2C%20Bengaluru%2C%20Karnataka!5e1!3m2!1sen!2sin!4v1772609539230!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-96"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29554.989643931447!2d77.51848334625096!3d13.055802485090508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d5cd10c0627%3A0xd11ad0f9a74b526d!2sJalahalli%2C%20Bengaluru%2C%20Karnataka!5e1!3m2!1sen!2sin!4v1772609539230!5m2!1sen!2sin"
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    class="w-full h-96"></iframe>
             </div>
         </section>
     </main>
@@ -158,12 +198,12 @@
                     <p>Whether you are upgrading or selling, we make it simple.</p>
                 </div>
                 <div class="flex flex-row justify-center items-center gap-5">
-                    <button
+                    <a href="/buy.html"
                         class="border-2 border-secondary rounded-full bg-white text-secondary px-7 py-2 text-xl text-center align-middle font-bold">Buy
-                        a Bike</button>
-                    <button
+                        a Bike</a>
+                    <a href="/sell.html"
                         class="border-2 border-primary bg-secondary text-white rounded-full px-7 py-2 text-xl text-center align-middle font-bold">Sell
-                        Your Bike</button>
+                        Your Bike</a>
                 </div>
             </article>
             <article>
@@ -174,7 +214,7 @@
                             <p>Quick Links</p>
                         </div>
                         <div class="w-1/3 text-white text-2xl font-bold pl-20">
-                            <p>Contact Us</p>
+                            <p>Reach Us</p>
                         </div>
                     </div>
                     <div class="flex flex-row justify-center">
@@ -184,8 +224,8 @@
                         </div>
                         <div class="w-1/3 text-white pl-20">
                             <ul class="flex flex-col gap-3">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="/about.html">About Us</a></li>
+                                <li><a href="/contact.html">Contact Us</a></li>
                                 <li><a href="#">Privacy Policies</a></li>
                             </ul>
                         </div>
@@ -195,9 +235,10 @@
                                 <p>support@reride.com</p>
                             </div>
                             <div class="flex gap-8">
-                                <a href=""><i data-lucide="facebook"></i></a>
-                                <a href=""><i data-lucide="instagram"></i></a>
-                                <a href=""><i data-lucide="twitter"></i></a>
+                                <a href="https://www.facebook.com/" target="_blank"><i data-lucide="facebook"></i></a>
+                                <a href="https://www.instagram.com/?hl=en" target="_blank"><i
+                                        data-lucide="instagram"></i></a>
+                                <a href="https://x.com/" target="_blank"><i data-lucide="twitter"></i></a>
                             </div>
                         </div>
                     </div>

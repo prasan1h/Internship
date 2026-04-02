@@ -18,10 +18,8 @@ fetch("./data/reride_dummy_bikes_80_realistic.json")
   .then((res) => res.json())
   .then((data) => {
     dataList = data;
-    listcount.innerText = `Found ${dataList.length} Bikes`;
-    displayList(dataList);
-  }
-);
+    updateDisplay();
+  });
 
 priceChecks.forEach((cb) => {
   cb.addEventListener("change", applyFilters);
@@ -39,7 +37,6 @@ colorChecks.forEach((cb) => {
   cb.addEventListener("change", applyFilters);
 });
 
-document.getElementById("searchBuy").addEventListener("change", blankSearch);
 sortSelect.addEventListener("change", sortAll);
 clearFilterBtn.addEventListener("click", clearAll);
 
@@ -49,6 +46,11 @@ function displayList(data) {
 
   container.innerHTML = "";
   currentIndex = 0;
+
+  if (data.length === 0) {
+    loadMoreBtn.style.display = "none";
+    return;
+  }
 
   loadMoreBtn.style.display = "block";
 
@@ -123,7 +125,6 @@ function displayList(data) {
 
     if (currentIndex >= data.length) {
       loadMoreBtn.style.display = "none";
-      currentIndex = 0;
     }
 
     lucide.createIcons();
@@ -134,27 +135,7 @@ function displayList(data) {
   loadMoreBtn.onclick = loadItems;
 }
 
-function searchBuy() {
-  const search_input = document.getElementById("searchBuy");
-  let filter = search_input.value.toUpperCase();
-
-  searchData = dataList.filter((bike) => {
-    return (
-      bike.vehicle_model.toUpperCase().includes(filter) ||
-      bike.vehicle_brand.toUpperCase().includes(filter)
-    );
-  });
-//   sortAll();
-  displayList(searchData);
-  clearAll();
-  if (search_input.value !== "") {
-    listcount.innerHTML = `${searchData.length} out of ${dataList.length} found`;
-  } else {
-    listcount.innerText = `Found ${dataList.length} Bikes`;
-  }
-  return searchData;
-  
-}
+document.getElementById("searchBuy").addEventListener("mouseout", blankSearch);
 
 function blankSearch() {
   const search_value = document.getElementById("searchBuy").value;
@@ -167,54 +148,164 @@ function blankSearch() {
   }
 }
 
-function sortAll() {
-  let valueSort = this.value;
+function searchBuy() {
+  const search_input = document.getElementById("searchBuy");
+  let filter = search_input.value.toUpperCase();
 
-  let bikes;
-  let currentData = [];
-  if (filteredData.length != 0 && searchData.length == 0) {
-    currentData = filteredData;
-    console.log("fileter data");
+  if (filter === "") {
+    searchData = [];
+  } else {
+    searchData = dataList.filter((bike) => {
+      return (
+        bike.vehicle_model.toUpperCase().includes(filter) ||
+        bike.vehicle_brand.toUpperCase().includes(filter)
+      );
+    });
   }
-  if (searchData.length == 0 && filteredData.length == 0) {
-    currentData = dataList;
-    console.log("data list");
+
+  applyFilters();
+}
+
+function getCurrentData() {
+  if (filteredData.length > 0) {
+    return filteredData;
+  } else if (searchData.length > 0) {
+    return searchData;
+  } else if (searchData.length === 0 && isSearchActive()) {
+    return [];
+  } else {
+    return dataList;
   }
-  if (searchData.length != 0 && filteredData.length == 0){
-    currentData = searchData;
-    console.log("search data");
+}
+
+function isSearchActive() {
+  const search_input = document.getElementById("searchBuy");
+  return search_input.value.trim() !== "";
+}
+
+function isFilterActive() {
+  const selectedPrice = getCheckedValue(priceChecks);
+  const selectedBrand = getCheckedValue(brandChecks);
+  const selectedYear = getCheckedValue(yearChecks);
+  const selectedColor = getCheckedValue(colorChecks);
+
+  return (
+    selectedPrice.length > 0 ||
+    selectedBrand.length > 0 ||
+    selectedYear.length > 0 ||
+    selectedColor.length > 0
+  );
+}
+
+function sortAll() {
+  updateDisplay();
+}
+
+function updateDisplay() {
+  let currentData = getDataToDisplay();
+  let sortedData = applySorting(currentData);
+  
+  displayList(sortedData);
+  updateListCount(sortedData.length);
+}
+
+function getDataToDisplay() {
+  const search_input = document.getElementById("searchBuy");
+  let filter = search_input.value.toUpperCase().trim();
+  let workingData = dataList;
+
+  if (filter !== "") {
+    workingData = dataList.filter((bike) => {
+      return (
+        bike.vehicle_model.toUpperCase().includes(filter) ||
+        bike.vehicle_brand.toUpperCase().includes(filter)
+      );
+    });
   }
+
+  const selectedPrice = getCheckedValue(priceChecks);
+  const selectedBrand = getCheckedValue(brandChecks);
+  const selectedYear = getCheckedValue(yearChecks);
+  const selectedColor = getCheckedValue(colorChecks);
+
+  if (
+    selectedPrice.length > 0 ||
+    selectedBrand.length > 0 ||
+    selectedYear.length > 0 ||
+    selectedColor.length > 0
+  ) {
+    workingData = workingData.filter((bike) => {
+      let brandMatch =
+        selectedBrand.length === 0 || selectedBrand.includes(bike.vehicle_brand);
+      let colorMatch =
+        selectedColor.length === 0 ||
+        selectedColor.includes(bike.vehicle_colour);
+      let priceMatch = true;
+      let yearMatch = true;
+
+      if (selectedPrice.length > 0) {
+        priceMatch = selectedPrice.some((range) => {
+          let [min, max] = range.split("-");
+          return (
+            bike.vehicle_selling_price >= Number(min) &&
+            bike.vehicle_selling_price <= Number(max)
+          );
+        });
+      }
+
+      if (selectedYear.length > 0) {
+        yearMatch = selectedYear.some((range) => {
+          let [min, max] = range.split("-");
+          return (
+            bike.vehicle_model_year >= Number(min) &&
+            bike.vehicle_model_year <= Number(max)
+          );
+        });
+      }
+
+      return priceMatch && brandMatch && yearMatch && colorMatch;
+    });
+  }
+
+  return workingData;
+}
+
+function applySorting(data) {
+  let valueSort = sortSelect.value;
 
   if (valueSort === "vehicle_model_year_htl") {
-    bikes = [...currentData].sort(
-      (a, b) => b.vehicle_model_year - a.vehicle_model_year,
+    return [...data].sort(
+      (a, b) => b.vehicle_model_year - a.vehicle_model_year
     );
   }
   if (valueSort === "vehicle_model_year_lth") {
-    bikes = [...currentData].sort(
-      (a, b) => a.vehicle_model_year - b.vehicle_model_year,
+    return [...data].sort(
+      (a, b) => a.vehicle_model_year - b.vehicle_model_year
     );
   }
   if (valueSort === "vehicle_selling_price_lth") {
-    bikes = [...currentData].sort(
-      (a, b) => a.vehicle_selling_price - b.vehicle_selling_price,
+    return [...data].sort(
+      (a, b) => a.vehicle_selling_price - b.vehicle_selling_price
     );
   }
   if (valueSort === "vehicle_selling_price_htl") {
-    bikes = [...currentData].sort(
-      (a, b) => b.vehicle_selling_price - a.vehicle_selling_price,
+    return [...data].sort(
+      (a, b) => b.vehicle_selling_price - a.vehicle_selling_price
     );
   }
   if (valueSort === "rating_htl") {
-    bikes = [...currentData].sort(
-      (a, b) => b.vehicle_rating - a.vehicle_rating,
-    );
+    return [...data].sort((a, b) => b.vehicle_rating - a.vehicle_rating);
   }
-  if (valueSort === "") {
-    bikes = [...currentData];
+
+  return [...data];
+}
+
+function updateListCount(count) {
+  if (count === dataList.length) {
+    listcount.innerText = `Found ${dataList.length} Bikes`;
+  } else {
+    listcount.innerHTML = `${count} out of ${dataList.length} found`;
   }
-  displayList(bikes);
-  // return bikes;
 }
 
 function clearAll() {
@@ -222,21 +313,9 @@ function clearAll() {
     .querySelectorAll('input[type="checkbox"]')
     .forEach((input) => (input.checked = false));
 
-  let currentDataLength;
-  if (searchData.length == 0) {
-    displayList(dataList);
-    currentDataLength = dataList.length;
-  } else {
-    displayList(searchData);
-    currentDataLength = searchData.length;
-  }
-  listcount.innerText = `Found ${currentDataLength} Bikes`;
   filteredData = [];
-}
 
-function getSelectedValue(radios) {
-  const selected = [...radios].find((radio) => radio.checked);
-  return selected ? selected.value : "";
+  updateDisplay();
 }
 
 function getCheckedValue(checks) {
@@ -244,54 +323,5 @@ function getCheckedValue(checks) {
 }
 
 function applyFilters() {
-  const selectedPrice = getCheckedValue(priceChecks);
-  const selectedBrand = getCheckedValue(brandChecks);
-  const selectedYear = getCheckedValue(yearChecks);
-  const selectedColor = getCheckedValue(colorChecks);
-
-  let currentData = [];
-  // let filteredData = [];
-  if (searchData.length == 0) {
-    currentData = dataList;
-  } else {
-    currentData = searchData;
-  }
-  filteredData = [...currentData].filter((bike) => {
-    let brandMatch =
-      selectedBrand.length === 0 || selectedBrand.includes(bike.vehicle_brand);
-    let colorMatch =
-      selectedColor.length === 0 || selectedColor.includes(bike.vehicle_colour);
-    let priceMatch = true;
-    let yearMatch = true;
-
-    if (selectedPrice.length > 0) {
-      priceMatch = selectedPrice.some((range) => {
-        let [min, max] = range.split("-");
-        return (
-          bike.vehicle_selling_price >= Number(min) &&
-          bike.vehicle_selling_price <= Number(max)
-        );
-      });
-    }
-
-    if (selectedYear.length > 0) {
-      yearMatch = selectedYear.some((range) => {
-        let [min, max] = range.split("-");
-        return (
-          bike.vehicle_model_year >= Number(min) &&
-          bike.vehicle_model_year <= Number(max)
-        );
-      });
-    }
-
-    return priceMatch && brandMatch && yearMatch && colorMatch;
-  });
-
-  if (filteredData !== "") {
-    listcount.innerHTML = `${filteredData.length} out of ${dataList.length} found`;
-  } else {
-    listcount.innerText = `Found ${dataList.length} Bikes`;
-  }
-  
-  displayList(filteredData);
+  updateDisplay();
 }

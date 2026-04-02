@@ -1,0 +1,23 @@
+.nav{
+    margin: 2px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-logo p{
+
+    font-size: 25px;
+
+}
+
+.nav-links ul{
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+
+}
+
+.nav-links ul li a{
+    text-decoration: none;
+    color: black;
+}

@@ -1,0 +1,23 @@
+.card-box{
+    width: 350px;
+    height: fit-content;
+    background-color: beige;
+    color: red;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-heading{
+    font-size: 25px;
+    color: red;
+    padding: 5px 2px ;
+}
+
+.card-content{
+    padding: 2px;
+}
+
+.card-btn{
+    padding: 5px 2px;
+    color: brown;
+}

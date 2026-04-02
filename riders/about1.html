@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | ReRide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "var(--primary)",    /* Assuming a light/creamy off-white */
+                        secondary: "var(--secondary)", /* Assuming a deep navy/blue */
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth transition for FAQ arrows */
+        details[open] summary i {
+            transform: rotate(180deg);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-white font-sans text-secondary">
+    <header class="sticky top-0 z-50 bg-primary/90 backdrop-blur-md border-b border-secondary/10">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+            <div class="flex items-center">
+                <img src="/img/Reride_Logo.png" alt="logo" class="w-40 md:w-48">
+            </div>
+            <ul class="hidden md:flex items-center gap-2">
+                <li><a href="/home.html" class="px-4 py-2 transition-all hover:text-blue-600 font-medium">Home</a></li>
+                <li><a href="/buy.html" class="px-4 py-2 transition-all hover:text-blue-600 font-medium">Buy</a></li>
+                <li><a href="/sell.html" class="px-4 py-2 transition-all hover:text-blue-600 font-medium">Sell</a></li>
+                <li><a href="/about.html" class="relative px-4 py-2 text-blue-600 font-semibold after:absolute after:bottom-0 after:left-4 after:right-4 after:h-1 after:bg-secondary after:rounded-full">About</a></li>
+                <li><a href="/contact.html" class="px-4 py-2 transition-all hover:text-blue-600 font-medium">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bg-primary relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 py-24 text-center relative z-10">
+                <div class="inline-flex items-center justify-center p-4 bg-white rounded-2xl shadow-xl shadow-secondary/10 mb-8">
+                    <i data-lucide="motorbike" class="size-12 text-secondary"></i>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                    Discover the most trusted <br> <span class="text-blue-600">Bike dealers</span>
+                </h1>
+                <p class="text-lg md:text-xl opacity-80 max-w-2xl mx-auto leading-relaxed">
+                    Learn about our journey, values, and mission to make buying and selling bikes seamless.
+                </p>
+            </div>
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+        </section>
+
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1">
+                    <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Since Day One</span>
+                    <h2 class="text-4xl font-bold mt-4 mb-6">Our Story</h2>
+                    <p class="text-lg leading-relaxed opacity-90 mb-8">
+                        ReRide was founded with a simple mission — to simplify the buying and selling of bikes. We
+                        bridge the gap between trust and convenience, ensuring every rider gets the best deal. Our
+                        platform connects verified dealers and customers with transparency and efficiency.
+                    </p>
+                    <button class="group flex items-center gap-2 bg-secondary text-white px-8 py-4 rounded-full font-bold transition-all hover:shadow-2xl hover:-translate-y-1">
+                        Learn More <i data-lucide="arrow-right" class="size-5 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+                <div class="order-1 md:order-2 relative">
+                    <div class="absolute -inset-4 bg-secondary/5 rounded-4xl -rotate-2"></div>
+                    <img src="img/apache-bike-1.png" alt="Bike Story" class="relative z-10 w-full rounded-3xl shadow-2xl border border-gray-100">
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-secondary text-white overflow-hidden relative">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-white/10 rounded-4xl rotate-2"></div>
+                    <img src="img/apache-bike-1.png" alt="Target" class="relative z-10 w-full rounded-3xl shadow-2xl bg-white p-8">
+                </div>
+                <div>
+                    <span class="text-blue-400 font-bold tracking-widest uppercase text-sm">Vision for India</span>
+                    <h2 class="text-4xl font-bold mt-4 mb-6">Our Target</h2>
+                    <p class="text-lg leading-relaxed opacity-80 mb-8">
+                        We aim to become India's most trusted two-wheeler marketplace. By leveraging technology and
+                        customer-first strategies, we strive to make every transaction safe, transparent, and
+                        efficient.
+                    </p>
+                    <button class="bg-white text-secondary px-8 py-4 rounded-full font-bold transition-all hover:bg-blue-50">
+                        Explore Our Vision
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Our Impact</h2>
+                    <div class="h-1.5 w-20 bg-blue-600 mx-auto rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                    <div class="text-center p-8 rounded-3xl hover:bg-primary transition-colors">
+                        <p class="text-5xl font-extrabold text-secondary mb-2">500+</p>
+                        <p class="text-sm font-medium uppercase tracking-wider opacity-60">Employees</p>
+                    </div>
+                    <div class="text-center p-8 rounded-3xl hover:bg-primary transition-colors">
+                        <p class="text-5xl font-extrabold text-secondary mb-2">50K+</p>
+                        <p class="text-sm font-medium uppercase tracking-wider opacity-60">Deals</p>
+                    </div>
+                    <div class="text-center p-8 rounded-3xl hover:bg-primary transition-colors">
+                        <p class="text-5xl font-extrabold text-secondary mb-2">96%</p>
+                        <p class="text-sm font-medium uppercase tracking-wider opacity-60">Positive Reviews</p>
+                    </div>
+                    <div class="text-center p-8 rounded-3xl hover:bg-primary transition-colors">
+                        <p class="text-5xl font-extrabold text-secondary mb-2">4+</p>
+                        <p class="text-sm font-medium uppercase tracking-wider opacity-60">Years</p>
+                    </div>
+                    <div class="text-center p-8 rounded-3xl hover:bg-primary transition-colors">
+                        <p class="text-5xl font-extrabold text-secondary mb-2">3+</p>
+                        <p class="text-sm font-medium uppercase tracking-wider opacity-60">Locations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-primary/30">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-16">
+                <div class="lg:w-1/3">
+                    <div class="flex items-center gap-2 text-blue-600 font-bold mb-4">
+                        <i data-lucide="help-circle" class="size-6"></i> FAQs
+                    </div>
+                    <h2 class="text-4xl font-bold mb-8 leading-tight">Frequently Asked <br> Questions</h2>
+                    
+                    <div class="p-8 rounded-4xl bg-secondary text-white shadow-2xl relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold mb-4">Book a 15 min call</h3>
+                            <p class="opacity-80 mb-6">Feel free to ask us questions. Book a call with us before you judge the unknown quests.</p>
+                            <div class="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-sm mb-6 border border-white/20">
+                                <i data-lucide="phone-call" class="size-4 mr-2"></i> Toll Free
+                            </div>
+                            <button class="w-full flex justify-between items-center bg-white text-secondary px-6 py-4 rounded-2xl font-bold hover:bg-blue-50 transition-colors">
+                                Book a Free Call <i data-lucide="move-up-right"></i>
+                            </button>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
+                    </div>
+                </div>
+
+                <div class="lg:w-2/3 flex flex-col gap-4">
+                    <details class="group bg-white rounded-2xl border border-gray-200 shadow-sm transition-all hover:shadow-md" open>
+                        <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-lg list-none">
+                            How do I place an order?
+                            <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+                            <div class="pt-4 border-t border-gray-100">
+                                Simply browse products, add them to cart, and complete checkout securely through our verified dealer payment gateway.
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-2xl border border-gray-200 shadow-sm transition-all hover:shadow-md">
+                        <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-lg list-none">
+                            What documents are required for selling?
+                            <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-600">
+                            <div class="pt-4 border-t border-gray-100">
+                                You will need your RC, Insurance, and a valid ID proof. Our team handles the ownership transfer for you.
+                            </div>
+                        </div>
+                    </details>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-secondary text-white pt-24 pb-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <article class="bg-white rounded-4xl p-12 text-center shadow-2xl mb-24 -mt-40 relative z-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-secondary mb-4">Ready for Ride?</h2>
+                <p class="text-secondary/70 mb-10 text-lg">Whether you are upgrading or selling, we make it simple.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/buy.html" class="bg-white border-2 border-secondary text-secondary px-10 py-4 rounded-full font-bold hover:bg-secondary hover:text-white transition-all">Buy a Bike</a>
+                    <a href="/sell.html" class="bg-secondary border-2 border-secondary text-white px-10 py-4 rounded-full font-bold hover:bg-blue-900 transition-all shadow-xl">Sell Your Bike</a>
+                </div>
+            </article>
+
+            <div class="grid md:grid-cols-3 gap-12 mb-16">
+                <div>
+                    <img src="img/logo white.png" alt="logo" class="w-48 mb-6">
+                    <p class="opacity-70 leading-relaxed">
+                        Trusted by thousands of riders in Bengaluru. The safest way to buy and sell used two-wheelers.
+                    </p>
+                </div>
+                <div class="md:pl-20">
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 opacity-70">
+                        <li><a href="/about.html" class="hover:text-blue-400">About Us</a></li>
+                        <li><a href="/contact.html" class="hover:text-blue-400">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-blue-400">Privacy Policies</a></li>
+                    </ul>
+                </div>
+                <div class="md:pl-20">
+                    <h4 class="text-xl font-bold mb-6">Reach Us</h4>
+                    <p class="opacity-70 mb-2">Jalahalli, Bengaluru, KA 560003</p>
+                    <p class="opacity-70 mb-8">support@reride.com</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"><i data-lucide="facebook" class="size-5"></i></a>
+                        <a href="#" class="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"><i data-lucide="instagram" class="size-5"></i></a>
+                        <a href="#" class="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"><i data-lucide="twitter" class="size-5"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 text-center opacity-50 text-sm">
+                &copy; 2026 ReRide Bikes. Designed and developed by Thincnext
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

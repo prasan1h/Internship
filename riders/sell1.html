@@ -4,26 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy</title>
+    <title>Sell Your Bike - ReRide</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: "var(--primary)",
-                        secondary: "var(--secondary)",
+                        primary: "#f9efec",
+                        secondary: "#0a1f58",
                     }
                 }
             }
         }
     </script>
+    <style>
+        :root {
+            --primary: #f9efec;
+            --secondary: #0a1f58;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #0a1f58 0%, #1a3f88 100%);
+        }
+
+        .benefit-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(10, 31, 88, 0.15);
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-gray-50">
     <header class="p-5 bg-primary">
         <nav class="flex justify-between justify-self-center items-center w-full px-20">
             <div class="flex justify-center items-center">
@@ -46,421 +71,577 @@
         </nav>
     </header>
 
+    <!-- Hero Section -->
+    <section class="hero-gradient py-20 px-4" id="hero-section">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                Turn Your Ride Into Cash
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                Sell your two-wheeler quickly, safely, and at the best price. Join thousands of satisfied sellers across Bengaluru.
+            </p>
+            <button id="start-selling-btn" 
+                class="bg-white text-secondary px-10 py-4 rounded-full text-lg font-bold hover:bg-primary hover:scale-105 transition-all shadow-lg">
+                Start Selling Now
+                <i data-lucide="arrow-right" class="inline-block ml-2 w-5 h-5"></i>
+            </button>
+        </div>
+    </section>
 
-    <main>
+    <!-- Benefits Section -->
+    <section class="py-16 px-4 bg-white" id="benefits-section">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-secondary mb-4">Why Sell With ReRide?</h2>
+                <p class="text-gray-600 text-lg">Experience the easiest and most reliable way to sell your two-wheeler</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="benefit-card bg-primary rounded-xl p-8 text-center">
+                    <div class="bg-secondary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">Quick & Easy Process</h3>
+                    <p class="text-gray-700">Complete your listing in just 10 simple steps. No hassle, no paperwork complications.</p>
+                </div>
+                <div class="benefit-card bg-primary rounded-xl p-8 text-center">
+                    <div class="bg-secondary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">Verified Buyers Only</h3>
+                    <p class="text-gray-700">Connect with genuine, pre-verified buyers. Your safety and security are our priority.</p>
+                </div>
+                <div class="benefit-card bg-primary rounded-xl p-8 text-center">
+                    <div class="bg-secondary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="indian-rupee" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">Best Price Guaranteed</h3>
+                    <p class="text-gray-700">Get competitive offers with our free inspection service. Maximize your vehicle's value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="py-1 hidden" id="sell-form-section">
         <section>
             <div class="flex flex-col pb-14">
-                <div class="w-full flex justify-end px-14 py-3">
-                    <p id="steps">/10</p>
+                <div class="w-full flex justify-center">
+                    <div class="max-w-5xl w-full flex justify-between px-1 py-3">
+                        <button id="clear" class="text-gray-600 px-3 py-1 hover:text-red-600 hover:bg-red-100 hover:px-3 hover:rounded-lg hover:py-1">clear</button>
+                        <p id="steps" class="text-gray-600 font-medium">1/10</p>
+                    </div>
                 </div>
-                <div class="max-w-5xl mx-auto">
-                    <div class="flex border-2 border-gray-300 rounded-t-md p-3">
-                        <div class="p-5">
-                            <i data-lucide="arrow-left"></i>
+                <div class="max-w-5xl mx-auto w-full">
+
+                    <div class="flex border-2 border-gray-300 rounded-t-md p-3 bg-white">
+                        <div id="back-arrow-container"
+                            class="p-5 cursor-pointer rounded-md transition-all hidden">
+                            <i data-lucide="arrow-left" class="size-12 p-3 hover:bg-gray-100 rounded-md transition-all"></i>
                         </div>
                         <div class="flex flex-wrap gap-3" id="step-menu">
-                            <button
-                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-brand">Brand</button>
-                            <button
-                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-vehicle_type">Vehicle Type</button>
-                            <button
-                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-model">Model</button>
-                            <button
-                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-model-year">Model Year</button>
-                            <button
-                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-vehicle-colour">Colour</button>
-                            <button
-                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-purchase-details">Purchase Details</button>
-                            <button
-                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-owner-type">Owner</button>
-                            <button
-                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-reg-photos">Photos & Registration</button>
-                            <button
-                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-inspection">Inspection</button>
-                            <button
-                                class="w-fit h-fit bg-white text-secondary border-2 border-secondary py-1 px-3 rounded-full" id="menu-contact">Contact</button>
+                            <button class="w-fit h-fit py-1 px-3 rounded-full" id="menu-brand">Brand</button>
+                            <button class="w-fit h-fit py-1 px-3 rounded-full" id="menu-vehicle_type">Vehicle
+                                Type</button>
+                            <button class="w-fit h-fit py-1 px-3 rounded-full" id="menu-model">Model</button>
+                            <button class="w-fit h-fit py-1 px-3 rounded-full" id="menu-model-year">Model Year</button>
+                            <button class="w-fit h-fit py-1 px-3 rounded-full" id="menu-vehicle-colour">Colour</button>
+                            <button class="w-fit h-fit py-1 px-3 rounded-full" id="menu-purchase-details">Purchase
+                                Details</button>
+                            <button class="w-fit h-fit py-1 px-3 rounded-full" id="menu-owner-type">Owner</button>
+                            <button class="w-fit h-fit py-1 px-3 rounded-full" id="menu-reg-photos">Photos &
+                                Registration</button>
+                            <button class="w-fit h-fit py-1 px-3 rounded-full"
+                                id="menu-inspection-details">Inspection</button>
+                            <button class="w-fit h-fit py-1 px-3 rounded-full" id="menu-contact-info">Contact</button>
                         </div>
                     </div>
 
-                    <div class=" border-2 border-gray-300 pb-10 px-8" id="brand">
+                    <div class="border-2 border-t-0 border-gray-300 pb-10 px-8 bg-white" id="brand">
                         <div class="text-2xl font-semibold py-5">
                             <p>Select the Brand of your two-wheeler</p>
                         </div>
-                        <div class="flex flex-wrap gap-2 justify-start">
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                        <div class="grid grid-cols-4 gap-4">
+                            <div data-value="TVS"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="text-sm font-bold bg-gray-100 px-3 py-1 rounded-md">TVS</div>
                                 <p class="text-xl font-bold">TVS</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
+                            <div data-value="Bajaj"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="text-sm font-bold bg-gray-100 px-3 py-1 rounded-md">BAJAJ</div>
+                                <p class="text-xl font-bold">Bajaj</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
+                            <div data-value="Hero"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="text-sm font-bold bg-gray-100 px-3 py-1 rounded-md">HERO</div>
+                                <p class="text-xl font-bold">Hero</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
+                            <div data-value="Honda"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="text-sm font-bold bg-gray-100 px-3 py-1 rounded-md">HONDA</div>
+                                <p class="text-xl font-bold">Honda</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
+                            <div data-value="Yamaha"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="text-sm font-bold bg-gray-100 px-3 py-1 rounded-md">YAMAHA</div>
+                                <p class="text-xl font-bold">Yamaha</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
+                            <div data-value="Royal Enfield"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="text-sm font-bold bg-gray-100 px-3 py-1 rounded-md">RE</div>
+                                <p class="text-xl font-bold">Royal Enfield</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
+                            <div data-value="Suzuki"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="text-sm font-bold bg-gray-100 px-3 py-1 rounded-md">SUZUKI</div>
+                                <p class="text-xl font-bold">Suzuki</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
-                            </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
-                            </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
-                            </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
-                            </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
-                            </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
-                                <p class="text-xl font-bold">TVS</p>
+                            <div data-value="KTM"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="text-sm font-bold bg-gray-100 px-3 py-1 rounded-md">KTM</div>
+                                <p class="text-xl font-bold">KTM</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class=" border-2 border-gray-300 pb-10 px-8" id="vehicle-type">
+                    <div class="border-2 border-t-0 border-gray-300 pb-10 px-8 bg-white" id="vehicle_type">
                         <div class="text-2xl font-semibold py-5">
-                            <p>Select the Type of your two-wheeler</p>
+                            <p>Select the type of your vehicle</p>
                         </div>
-                        <div class="w-full flex flex-wrap gap-2 justify-center">
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-[160px] text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                        <div class="grid grid-cols-3 gap-4">
+                            <div data-value="Bike"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="flex justify-center">
+                                    <i data-lucide="bike" class="w-16 h-16"></i>
+                                </div>
                                 <p class="text-xl font-bold">Bike</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-[160px] text-center">
-                                <img src="img/Reride_Logo.png" alt="" width="150px">
+                            <div data-value="Scooter"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="flex justify-center">
+                                    <i data-lucide="scooter" class="w-16 h-16"></i>
+                                </div>
                                 <p class="text-xl font-bold">Scooter</p>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class=" border-2 border-gray-300 pb-10 px-8" id="model">
-                        <div class="text-2xl font-semibold py-5">
-                            <p>Select the Model of your two-wheeler</p>
-                        </div>
-                        <div class="w-full flex flex-wrap gap-2 justify-center">
-                            <div class="border-2 border-gray-300 rounded-xl w-full flex">
-                                <input type="text" placeholder="Search the Model Name"
-                                    class="w-full px-2 py-4  rounded-xl">
-                                <div class="flex items-center p-2"><i data-lucide="search"></i></div>
-                            </div>
-                            <div>
-                                <ul></ul>
+                            <div data-value="Cruiser"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <div class="flex justify-center">
+                                    <i data-lucide="bike" class="w-16 h-16"></i>
+                                </div>
+                                <p class="text-xl font-bold">Cruiser</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class=" border-2 border-gray-300 pb-10 px-8" id="model-year">
+                    <div class="border-2 border-t-0 border-gray-300 pb-10 px-8 bg-white" id="model">
                         <div class="text-2xl font-semibold py-5">
-                            <p>Select the Model Year of your two-wheeler</p>
+                            <p>Select the Model</p>
                         </div>
-                        <div class="w-full flex flex-wrap gap-2 justify-start">
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2026</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2025</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2024</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2023</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2022</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2021</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2020</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2019</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2018</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2017</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2016</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2015</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2014</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2013</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2012</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2011</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2010</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2009</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2008</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2007</div>
-                            <div
-                                class="flex items-center justify-center w-32 h-16 border-2 border-gray-300 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-100 transition">
-                                2006</div>
-
+                        <div class="grid grid-cols-4 gap-4">
+                            <div data-value="Apache RTR 160"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Apache RTR 160</p>
+                            </div>
+                            <div data-value="Apache RTR 200"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Apache RTR 200</p>
+                            </div>
+                            <div data-value="Pulsar 150"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Pulsar 150</p>
+                            </div>
+                            <div data-value="Pulsar 220"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Pulsar 220</p>
+                            </div>
+                            <div data-value="Splendor Plus"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Splendor Plus</p>
+                            </div>
+                            <div data-value="HF Deluxe"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">HF Deluxe</p>
+                            </div>
+                            <div data-value="Activa"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Activa</p>
+                            </div>
+                            <div data-value="Shine"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Shine</p>
+                            </div>
+                            <div data-value="FZ"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">FZ</p>
+                            </div>
+                            <div data-value="R15"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">R15</p>
+                            </div>
+                            <div data-value="Classic 350"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Classic 350</p>
+                            </div>
+                            <div data-value="Bullet 350"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Bullet 350</p>
+                            </div>
+                            <div data-value="Gixxer"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Gixxer</p>
+                            </div>
+                            <div data-value="Access 125"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Access 125</p>
+                            </div>
+                            <div data-value="Duke 200"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Duke 200</p>
+                            </div>
+                            <div data-value="Others" id="others-model-card"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-bold">Others</p>
+                            </div>
+                        </div>
+                        <!-- Custom Model Input (Hidden by default) -->
+                        <div id="custom-model-input" class="mt-6 hidden">
+                            <label class="block mb-2 font-medium text-lg">Enter Model Name</label>
+                            <input type="text" id="custom-model-name" placeholder="Type your model name here"
+                                class="w-full border-2 border-gray-300 rounded-md px-4 py-3 focus:border-secondary focus:outline-none">
                         </div>
                     </div>
 
-                    <div class=" border-2 border-gray-300 pb-10 px-8" id="vehicle-colour">
+                    <div class="border-2 border-t-0 border-gray-300 pb-10 px-8 bg-white" id="model-year">
                         <div class="text-2xl font-semibold py-5">
-                            <p>Select the Colour of your two-wheeler</p>
+                            <p>Select the Model Year</p>
                         </div>
-                        <div class="w-full flex flex-wrap justify-center">
-                            <div
-                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
-                                <p>Red</p>
+                        <div class="grid grid-cols-6 gap-3">
+                            <div data-value="2026"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2026</p>
                             </div>
-                            <div
-                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
-                                <p>White</p>
+                            <div data-value="2025"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2025</p>
                             </div>
-                            <div
-                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
-                                <p>Black</p>
+                            <div data-value="2024"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2024</p>
                             </div>
-                            <div
-                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
-                                <p>Blue</p>
+                            <div data-value="2023"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2023</p>
                             </div>
-                            <div
-                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
-                                <p>Gray</p>
+                            <div data-value="2022"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2022</p>
                             </div>
-                            <div
-                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
-                                <p>Green</p>
+                            <div data-value="2021"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2021</p>
                             </div>
-                            <div
-                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
-                                <p>Yellow</p>
+                            <div data-value="2020"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2020</p>
                             </div>
-                            <div
-                                class="border-2 border-gray-200 rounded-xl w-full text-center text-xl font-semibold py-3 my-1">
-                                <p>Orange</p>
+                            <div data-value="2019"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2019</p>
+                            </div>
+                            <div data-value="2018"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2018</p>
+                            </div>
+                            <div data-value="2017"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2017</p>
+                            </div>
+                            <div data-value="2016"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2016</p>
+                            </div>
+                            <div data-value="2015"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2015</p>
+                            </div>
+                            <div data-value="2014"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2014</p>
+                            </div>
+                            <div data-value="2013"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2013</p>
+                            </div>
+                            <div data-value="2012"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2012</p>
+                            </div>
+                            <div data-value="2011"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2011</p>
+                            </div>
+                            <div data-value="2010"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2010</p>
+                            </div>
+                            <div data-value="2009"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2009</p>
+                            </div>
+                            <div data-value="2008"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2008</p>
+                            </div>
+                            <div data-value="2007"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2007</p>
+                            </div>
+                            <div data-value="2006"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2006</p>
+                            </div>
+                            <div data-value="2005"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2005</p>
+                            </div>
+                            <div data-value="2004"
+                                class="border-2 border-gray-300 rounded-md py-3 px-4 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-lg font-semibold">2004</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class=" border-2 border-gray-300 pb-10 px-8" id="purchase-details">
+                    <div class="border-2 border-t-0 border-gray-300 pb-10 px-8 bg-white" id="vehicle-colour">
                         <div class="text-2xl font-semibold py-5">
-                            <p>Enter the Purchase Details</p>
+                            <p>Select the Colour</p>
+                        </div>
+                        <div class="grid grid-cols-4 gap-4">
+                            <div data-value="Black"
+                                class="flex items-center gap-4 border-2 border-gray-300 rounded-md py-4 px-6 hover:shadow-md transition-all cursor-pointer">
+                                <div class="w-8 h-8 rounded-full bg-black border-2 border-gray-300"></div>
+                                <p class="text-lg font-semibold">Black</p>
+                            </div>
+                            <div data-value="White"
+                                class="flex items-center gap-4 border-2 border-gray-300 rounded-md py-4 px-6 hover:shadow-md transition-all cursor-pointer">
+                                <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-300"></div>
+                                <p class="text-lg font-semibold">White</p>
+                            </div>
+                            <div data-value="Red"
+                                class="flex items-center gap-4 border-2 border-gray-300 rounded-md py-4 px-6 hover:shadow-md transition-all cursor-pointer">
+                                <div class="w-8 h-8 rounded-full bg-red-600 border-2 border-gray-300"></div>
+                                <p class="text-lg font-semibold">Red</p>
+                            </div>
+                            <div data-value="Blue"
+                                class="flex items-center gap-4 border-2 border-gray-300 rounded-md py-4 px-6 hover:shadow-md transition-all cursor-pointer">
+                                <div class="w-8 h-8 rounded-full bg-blue-600 border-2 border-gray-300"></div>
+                                <p class="text-lg font-semibold">Blue</p>
+                            </div>
+                            <div data-value="Silver"
+                                class="flex items-center gap-4 border-2 border-gray-300 rounded-md py-4 px-6 hover:shadow-md transition-all cursor-pointer">
+                                <div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-gray-300"></div>
+                                <p class="text-lg font-semibold">Silver</p>
+                            </div>
+                            <div data-value="Grey"
+                                class="flex items-center gap-4 border-2 border-gray-300 rounded-md py-4 px-6 hover:shadow-md transition-all cursor-pointer">
+                                <div class="w-8 h-8 rounded-full bg-gray-600 border-2 border-gray-300"></div>
+                                <p class="text-lg font-semibold">Grey</p>
+                            </div>
+                            <div data-value="Yellow"
+                                class="flex items-center gap-4 border-2 border-gray-300 rounded-md py-4 px-6 hover:shadow-md transition-all cursor-pointer">
+                                <div class="w-8 h-8 rounded-full bg-yellow-400 border-2 border-gray-300"></div>
+                                <p class="text-lg font-semibold">Yellow</p>
+                            </div>
+                            <div data-value="Green"
+                                class="flex items-center gap-4 border-2 border-gray-300 rounded-md py-4 px-6 hover:shadow-md transition-all cursor-pointer">
+                                <div class="w-8 h-8 rounded-full bg-green-600 border-2 border-gray-300"></div>
+                                <p class="text-lg font-semibold">Green</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-t-0 border-gray-300 pb-10 px-8 bg-white" id="purchase-details">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Purchase Details</p>
                         </div>
                         <div class="flex flex-col gap-5">
                             <div>
-                                <div>
-                                    <p>Purchase Date</p>
-                                </div>
-                                <div><input type="date" name="" id=""
-                                        class="w-full border-2 border-gray-200 rounded-md px-4 py-2 "></div>
+                                <label class="block mb-2 font-medium">Purchase Date</label>
+                                <input type="date" id="purchase-date"
+                                    class="w-full border-2 border-gray-200 rounded-md px-4 py-3 cursor-pointer focus:border-secondary focus:outline-none">
                             </div>
                             <div>
-                                <div>
-                                    <p>Purchase Amount(₹)</p>
-                                </div>
-                                <div><input type="number" name="" id=""
-                                        class="w-full border-2 border-gray-200 rounded-md px-4 py-2 "></div>
+                                <label class="block mb-2 font-medium">Purchase Amount (₹)</label>
+                                <input type="number" id="purchase-amount" placeholder="Enter purchase amount"
+                                    class="w-full border-2 border-gray-200 px-4 py-3 rounded-md focus:border-secondary focus:outline-none">
                             </div>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <button id="purchase-next-btn"
+                                class="px-8 py-3 bg-gray-400 text-white font-semibold rounded-md transition-all cursor-not-allowed disabled:bg-gray-400 disabled:cursor-not-allowed"
+                                disabled>
+                                Continue
+                            </button>
                         </div>
                     </div>
 
-                    <div class=" border-2 border-gray-300 pb-10 px-8" id="owner-type">
+                    <div class="border-2 border-t-0 border-gray-300 pb-10 px-8 bg-white" id="owner-type">
                         <div class="text-2xl font-semibold py-5">
-                            <p>Select Owner Type</p>
+                            <p>Owner Type</p>
                         </div>
-                        <div class="flex gap-5">
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center w-56">
-                                <div class="flex justify-center p-2"><i data-lucide="person-standing"
-                                        class="bg-gray-100 p-2 size-12 border-2 border-gray-200 rounded-md"></i></div>
+                        <div class="grid grid-cols-4 gap-4">
+                            <div data-value="1st Owner"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
                                 <p class="text-xl font-bold">1st Owner</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center w-56">
-                                <div class="flex justify-center p-2"><i data-lucide="person-standing"
-                                        class="bg-gray-100 p-2 size-12 border-2 border-gray-200 rounded-md"></i></div>
+                            <div data-value="2nd Owner"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
                                 <p class="text-xl font-bold">2nd Owner</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center w-56">
-                                <div class="flex justify-center p-2"><i data-lucide="person-standing"
-                                        class="bg-gray-100 p-2 size-12 border-2 border-gray-200 rounded-md"></i></div>
+                            <div data-value="3rd Owner"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
                                 <p class="text-xl font-bold">3rd Owner</p>
                             </div>
-                            <div
-                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-10 text-center w-56">
-                                <div class="flex justify-center p-2"><i data-lucide="person-standing"
-                                        class="bg-gray-100 p-2 size-12 border-2 border-gray-200 rounded-md"></i></div>
-                                <p class="text-xl font-bold">4+ Owner</p>
+                            <div data-value="4th+ Owner"
+                                class="flex flex-col justify-center gap-4 border-2 border-gray-300 rounded-md py-5 px-8 text-center hover:shadow-md transition-all cursor-pointer">
+                                <p class="text-xl font-bold">4th+ Owner</p>
                             </div>
                         </div>
                     </div>
 
-
-                    <div class=" border-2 border-gray-300 pb-10 px-8" id="reg-photo">
+                    <div class="border-2 border-t-0 border-gray-300 pb-10 px-8 bg-white" id="reg-photos">
                         <div class="text-2xl font-semibold py-5">
-                            <p>Vehicle Registration & Photos</p>
+                            <p>Photos & Registration</p>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block mb-2 font-medium">Registration Number</label>
+                            <input type="text" id="registration-number" placeholder="e.g., KA01AB1234"
+                                class="w-full border-2 border-gray-200 rounded-md px-4 py-3 uppercase focus:border-secondary focus:outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <label class="block mb-2 font-medium">Front View *</label>
+                                <div class="relative">
+                                    <div id="preview-front"
+                                        class="w-full h-48 border-2 border-dashed border-gray-300 rounded-md flex items-center justify-center cursor-pointer hover:border-secondary transition-all">
+                                        <div class="text-center">
+                                            <i data-lucide="upload" class="w-12 h-12 mx-auto mb-2 text-gray-400"></i>
+                                            <p class="text-sm text-gray-500">Click to upload</p>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="upload-front" accept="image/*" class="hidden">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">Rear View</label>
+                                <div class="relative">
+                                    <div id="preview-rear"
+                                        class="w-full h-48 border-2 border-dashed border-gray-300 rounded-md flex items-center justify-center cursor-pointer hover:border-secondary transition-all">
+                                        <div class="text-center">
+                                            <i data-lucide="upload" class="w-12 h-12 mx-auto mb-2 text-gray-400"></i>
+                                            <p class="text-sm text-gray-500">Click to upload</p>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="upload-rear" accept="image/*" class="hidden">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">Right Side</label>
+                                <div class="relative">
+                                    <div id="preview-right"
+                                        class="w-full h-48 border-2 border-dashed border-gray-300 rounded-md flex items-center justify-center cursor-pointer hover:border-secondary transition-all">
+                                        <div class="text-center">
+                                            <i data-lucide="upload" class="w-12 h-12 mx-auto mb-2 text-gray-400"></i>
+                                            <p class="text-sm text-gray-500">Click to upload</p>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="upload-right" accept="image/*" class="hidden">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">Left Side</label>
+                                <div class="relative">
+                                    <div id="preview-left"
+                                        class="w-full h-48 border-2 border-dashed border-gray-300 rounded-md flex items-center justify-center cursor-pointer hover:border-secondary transition-all">
+                                        <div class="text-center">
+                                            <i data-lucide="upload" class="w-12 h-12 mx-auto mb-2 text-gray-400"></i>
+                                            <p class="text-sm text-gray-500">Click to upload</p>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="upload-left" accept="image/*" class="hidden">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">Dashboard</label>
+                                <div class="relative">
+                                    <div id="preview-dashboard"
+                                        class="w-full h-48 border-2 border-dashed border-gray-300 rounded-md flex items-center justify-center cursor-pointer hover:border-secondary transition-all">
+                                        <div class="text-center">
+                                            <i data-lucide="upload" class="w-12 h-12 mx-auto mb-2 text-gray-400"></i>
+                                            <p class="text-sm text-gray-500">Click to upload</p>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="upload-dashboard" accept="image/*" class="hidden">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <button id="photos-next-btn"
+                                class="px-8 py-3 bg-gray-400 text-white font-semibold rounded-md transition-all cursor-not-allowed disabled:bg-gray-400 disabled:cursor-not-allowed"
+                                disabled>
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-t-0 border-gray-300 pb-10 px-8 bg-white" id="inspection-details">
+                        <div class="text-2xl font-semibold py-5">
+                            <p>Inspection Details</p>
                         </div>
                         <div class="flex flex-col gap-5">
-                            <div class="flex flex-col gap-2">
-                                <div>
-                                    <p>Enter Vehicle Registration Number</p>
-                                </div>
-                                <div><input type="text" name="" id="" placeholder="E.g, KA ** XX ****"
-                                        class="w-full border-2 border-gray-200 rounded-md px-4 py-2 "></div>
+                            <div>
+                                <label class="block mb-2 font-medium">Inspection Date</label>
+                                <input type="date" id="inspection-date"
+                                    class="w-full border-2 border-gray-200 rounded-md px-4 py-3 cursor-pointer focus:border-secondary focus:outline-none">
                             </div>
                             <div>
-                                <div class="text-2xl font-semibold py-5">
-                                    <p>Clicks few Pictures of your Vehicle</p>
-                                </div>
-                                <div class="flex flex-wrap justify-start gap-2 ">
-                                    <div class="h-56 w-78 p-2 border-2 border-gray-200 rounded-md flex flex-col justify-between">
-                                        <div class="flex flex-col justify-center py-3 gap-4">
-                                            <div class="flex justify-center py-1 h-fit"><i data-lucide="camera" class="size-16 bg-gray-100 p-5 border-2 border-gray-300 rounded-md"></i></div>
-                                            <div class="flex justify-center py-1 text-center w-72"><p>Take a Picture of your Bike in Front view</p></div>
-                                        </div>
-                                        <div><button class="w-full bg-secondary text-white font-semibold rounded-md py-2 ">Upload Front View</button></div>
-                                    </div>
-                                    <div class="h-56 w-78 p-2 border-2 border-gray-200 rounded-md flex flex-col justify-between">
-                                        <div class="flex flex-col justify-center py-3 gap-4">
-                                            <div class="flex justify-center py-1 h-fit"><i data-lucide="camera" class="size-16 bg-gray-100 p-5 border-2 border-gray-300 rounded-md"></i></div>
-                                            <div class="flex justify-center py-1 text-center w-72"><p>Take a Picture of your Bike in Rear view</p></div>
-                                        </div>
-                                        <div><button class="w-full bg-secondary text-white font-semibold rounded-md py-2 ">Upload Rear View</button></div>
-                                    </div>
-                                    <div class="h-56 w-78 p-2 border-2 border-gray-200 rounded-md flex flex-col justify-between">
-                                        <div class="flex flex-col justify-center py-3 gap-4">
-                                            <div class="flex justify-center py-1 h-fit"><i data-lucide="camera" class="size-16 bg-gray-100 p-5 border-2 border-gray-300 rounded-md"></i></div>
-                                            <div class="flex justify-center py-1 text-center w-72"><p>Take a Picture of your Bike From Right Side</p></div>
-                                        </div>
-                                        <div><button class="w-full bg-secondary text-white font-semibold rounded-md py-2 ">Upload Rigth Side</button></div>
-                                    </div>
-                                    <div class="h-56 w-78 p-2 border-2 border-gray-200 rounded-md flex flex-col justify-between">
-                                        <div class="flex flex-col justify-center py-3 gap-4">
-                                            <div class="flex justify-center py-1 h-fit"><i data-lucide="camera" class="size-16 bg-gray-100 p-5 border-2 border-gray-300 rounded-md"></i></div>
-                                            <div class="flex justify-center py-1 text-center w-72"><p>Take a Picture of your Bike From Left Side</p></div>
-                                        </div>
-                                        <div><button class="w-full bg-secondary text-white font-semibold rounded-md py-2 ">Upload Left Side</button></div>
-                                    </div>
-                                    <div class="h-56 w-78 p-2 border-2 border-gray-200 rounded-md flex flex-col justify-between">
-                                        <div class="flex flex-col justify-center py-3 gap-4">
-                                            <div class="flex justify-center py-1 h-fit"><i data-lucide="camera" class="size-16 bg-gray-100 p-5 border-2 border-gray-300 rounded-md"></i></div>
-                                            <div class="flex justify-center py-1 text-center w-72"><p>Take a Picture of your Bike's Dashboard</p></div>
-                                        </div>
-                                        <div><button class="w-full bg-secondary text-white font-semibold rounded-md py-2 ">Upload Bike's Dashboard</button></div>
-                                    </div>
-                                </div>
+                                <label class="block mb-2 font-medium">Inspection Branch</label>
+                                <select id="inspection-branch"
+                                    class="w-full border-2 border-gray-200 px-4 py-3 rounded-md focus:border-secondary focus:outline-none">
+                                    <option value="">- select Location -</option>
+                                    <option value="Bengaluru">Bengaluru</option>
+                                    <option value="Mysuru">Mysuru</option>
+                                    <option value="Tumkuru">Tumkuru</option>
+                                </select>
                             </div>
                         </div>
                     </div>
 
-                    <div class=" border-2 border-gray-300 pb-10 px-8" id="inspection">
-                        <div class="text-2xl font-semibold py-5">
-                            <p>Provide the Inspection Details</p>
-                        </div>
-                        <div class="flex flex-col gap-5">
-                            <div>
-                                <div>
-                                    <p>Inspection Date</p>
-                                </div>
-                                <div><input type="date" name="" id=""
-                                        class="w-full border-2 border-gray-200 rounded-md px-4 py-2 "></div>
-                            </div>
-                            <div>
-                                <div>
-                                    <p>Inspection Branch</p>
-                                </div>
-                                <div>
-                                    <select name="" id="" class="w-full border-2 border-gray-200 px-4 py-2 rounded-md peer:px-2">
-                                        <option value="">-- select branch --</option>
-                                        <option value="Bengaluru">Bengaluru</option>
-                                        <option value="Mysuru">Mysuru</option>
-                                        <option value="Tumkuru">Tumkuru</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" border-2 border-gray-300 pb-10 px-8" id="contact-info">
+                    <div class="border-2 border-t-0 border-gray-300 rounded-b-md pb-10 px-8 bg-white" id="contact-info">
                         <div class="text-2xl font-semibold py-5">
                             <p>Contact Information</p>
                         </div>
                         <div class="flex flex-col max-w-md mx-auto">
-                            <form action="">
+                            <form id="contact-form">
                                 <div class="flex flex-col my-4 gap-3">
-                                    <label for="" class="w-full text-xl font-semibold">Full Name</label>
-                                    <input type="text" class="border-2 border-gray-200 rounded-md py-2 px-3">
+                                    <label class="w-full text-lg font-semibold">Full Name</label>
+                                    <input type="text" id="contact-name" placeholder="Enter your full name"
+                                        class="border-2 border-gray-200 rounded-md py-2 px-3 focus:border-secondary focus:outline-none" required>
                                 </div>
                                 <div class="flex flex-col my-4 gap-3">
-                                    <label for="" class="w-full text-xl font-semibold">Mobile Number</label>
-                                    <input type="number" class="border-2 border-gray-200 rounded-md py-2 px-3">
+                                    <label class="w-full text-lg font-semibold">Mobile Number</label>
+                                    <input type="tel" id="contact-mobile" placeholder="Enter 10 digit mobile number"
+                                        maxlength="10" pattern="[0-9]{10}"
+                                        class="border-2 border-gray-200 rounded-md py-2 px-3 focus:border-secondary focus:outline-none" required>
                                 </div>
                                 <div class="flex flex-col my-4 gap-3">
-                                    <label for="" class="w-full text-xl font-semibold">Email Address</label>
-                                    <input type="email" class="border-2 border-gray-200 rounded-md py-2 px-3">
+                                    <label class="w-full text-lg font-semibold">Email Address</label>
+                                    <input type="email" id="contact-email" placeholder="Enter your email"
+                                        class="border-2 border-gray-200 rounded-md py-2 px-3 focus:border-secondary focus:outline-none" required>
                                 </div>
-                                <div>
-                                    <button type="submit" class="w-full py-3 bg-secondary text-white text-center rounded-md">Submit Vehicle Details</button>
+                                <div class="mt-6">
+                                    <button type="submit"
+                                        class="w-full py-3 bg-secondary text-white text-center rounded-md font-semibold hover:opacity-90 transition-all">
+                                        Submit Vehicle Details
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -469,7 +650,6 @@
             </div>
         </section>
     </main>
-
 
     <footer class="bg-white">
         <section class="bg-secondary py-10">
@@ -481,12 +661,12 @@
                     <p>Whether you are upgrading or selling, we make it simple.</p>
                 </div>
                 <div class="flex flex-row justify-center items-center gap-5">
-                    <button
-                        class="border-2 border-secondary rounded-full bg-white text-secondary px-7 py-2 text-xl text-center align-middle font-bold">Buy
-                        a Bike</button>
-                    <button
-                        class="border-2 border-primary bg-secondary text-white rounded-full px-7 py-2 text-xl text-center align-middle font-bold">Sell
-                        Your Bike</button>
+                    <a href="/buy.html"
+                        class="border-2 border-secondary rounded-full bg-white text-secondary px-7 py-2 text-xl text-center align-middle font-bold hover:bg-primary transition-all">Buy
+                        a Bike</a>
+                    <a href="/sell.html"
+                        class="border-2 border-primary bg-secondary text-white rounded-full px-7 py-2 text-xl text-center align-middle font-bold hover:opacity-90 transition-all">Sell
+                        Your Bike</a>
                 </div>
             </article>
             <article>
@@ -497,7 +677,7 @@
                             <p>Quick Links</p>
                         </div>
                         <div class="w-1/3 text-white text-2xl font-bold pl-20">
-                            <p>Contact Us</p>
+                            <p>Reach Us</p>
                         </div>
                     </div>
                     <div class="flex flex-row justify-center">
@@ -507,20 +687,20 @@
                         </div>
                         <div class="w-1/3 text-white pl-20">
                             <ul class="flex flex-col gap-3">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="/about.html">About Us</a></li>
+                                <li><a href="/contact.html">Contact Us</a></li>
                                 <li><a href="#">Privacy Policies</a></li>
                             </ul>
                         </div>
                         <div class="w-1/3 text-white flex flex-col gap-5  pl-20">
                             <div class="flex flex-col ">
                                 <p>Jalahalli, Bengaluru, KA 560003</p>
-                                <p>support@reride.com</p>
+                                <p>info@reridebikes.com</p>
                             </div>
                             <div class="flex gap-8">
-                                <a href=""><i data-lucide="facebook"></i></a>
-                                <a href=""><i data-lucide="instagram"></i></a>
-                                <a href=""><i data-lucide="twitter"></i></a>
+                                <a href="https://www.facebook.com/" target="_blank"><i data-lucide="facebook"></i></a>
+                                <a href="https://www.instagram.com/?hl=en" target="_blank"><i data-lucide="instagram"></i></a>
+                                <a href="https://x.com/" target="_blank"><i data-lucide="twitter"></i></a>
                             </div>
                         </div>
                     </div>
@@ -532,11 +712,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="index.js"></script>
-    <script src="script/sell.js"></script>
-
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="sell1.js"></script>
     <script>
         lucide.createIcons();
     </script>

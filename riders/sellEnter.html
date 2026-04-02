@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Bike - ReRide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "var(--primary)",
+                        secondary: "var(--secondary)",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="p-5 bg-primary">
+        <nav class="flex justify-between justify-self-center items-center w-full px-20">
+            <div class="flex justify-center items-center">
+                <img src="/img/Reride_Logo.png" alt="logo" width="200px">
+            </div>
+            <div class="">
+                <ul class="flex ">
+                    <li class="m-1"><a href="/home.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Home</a></li>
+                    <li class="m-1"><a href="/buy.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Buy</a></li>
+                    <li class="m-1"><a href="/sell.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Sell</a></li>
+                    <li class="m-1"><a href="/about.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">About</a></li>
+                    <li class="m-1"><a href="/contact.html"
+                            class="mx-1 p-2 hover:rounded-lg hover:border-b-4 hover:border-b-secondary">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+    </main>
+
+    <footer class="bg-white">
+        <section class="bg-secondary py-10">
+            <article class="bg-white max-w-6xl mx-auto rounded-[30px] flex flex-col py-10 ">
+                <div class="text-center text-secondary text-5xl font-semibold py-3">
+                    <p>Ready for Ride ?</p>
+                </div>
+                <div class="text-center text-secondary text-md pb-6">
+                    <p>Whether you are upgrading or selling, we make it simple.</p>
+                </div>
+                <div class="flex flex-row justify-center items-center gap-5">
+                    <button
+                        class="border-2 border-secondary rounded-full bg-white text-secondary px-7 py-2 text-xl text-center align-middle font-bold">Buy
+                        a Bike</button>
+                    <button
+                        class="border-2 border-primary bg-secondary text-white rounded-full px-7 py-2 text-xl text-center align-middle font-bold">Sell
+                        Your Bike</button>
+                </div>
+            </article>
+            <article>
+                <div class="flex flex-col max-w-6xl mx-auto gap-5 py-10">
+                    <div class="flex flex-row justify-center">
+                        <div class="w-1/3"><img src="img/logo white.png" alt="logo" width="200px"></div>
+                        <div class="w-1/3 text-white text-2xl font-bold pl-20">
+                            <p>Quick Links</p>
+                        </div>
+                        <div class="w-1/3 text-white text-2xl font-bold pl-20">
+                            <p>Contact Us</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row justify-center">
+                        <div class="w-1/3 text-white">
+                            <p>Trusted by thousands of riders in Bengaluru.
+                                The safest way to buy and sell used two-wheelers.</p>
+                        </div>
+                        <div class="w-1/3 text-white pl-20">
+                            <ul class="flex flex-col gap-3">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Privacy Policies</a></li>
+                            </ul>
+                        </div>
+                        <div class="w-1/3 text-white flex flex-col gap-5  pl-20">
+                            <div class="flex flex-col ">
+                                <p>Jalahalli, Bengaluru, KA 560003</p>
+                                <p>support@reride.com</p>
+                            </div>
+                            <div class="flex gap-8">
+                                <a href=""><i data-lucide="facebook"></i></a>
+                                <a href=""><i data-lucide="instagram"></i></a>
+                                <a href=""><i data-lucide="twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <div class="bg-secondary flex justify-center text-white text-center pb-[35px]">
+            <p> &copy; 2026 ReRide Bikes. design and developed by thincnext</p>
+        </div>
+    </footer>
+
+    <script src="script/sell.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
